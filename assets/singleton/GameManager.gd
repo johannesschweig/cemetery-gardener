@@ -1,25 +1,30 @@
 extends Node2D
 
+signal crematorium_key_found()
+signal chest_found()
+signal item_found()
+
+# show all items, hide title screen
+@export var debug = true
+# for inventory back switching
+@export var current_area = "map"
+
 enum ITEM_STATUS {
 	INITIAL,
 	FOUND,
 	USED
 }
 
-signal crematorium_key_found()
-signal chest_found()
-signal item_found()
-
-# for inventory back switching
-@export var current_area = "map"
 
 @export var inventory = [
 	{
-		"id": 20,
-		"identifier": "car_key",
-		"description": "From an Opel",
+		"id": 34,
+		"identifier": "letters",
+		"description": "tfkkar cdgjbp",
 		"status": ITEM_STATUS.INITIAL,
-		"icon": "carKey",
+		"icon": "characters",
+		"unlock": true,
+		"solution": "thomas dehler",
 	},
 	{
 		"id": 33,
@@ -29,6 +34,13 @@ signal item_found()
 		"icon": "code",
 		"unlock": true,
 		"solution": "thomas dehler",
+	},
+	{
+		"id": 20,
+		"identifier": "car_key",
+		"description": "From an Opel",
+		"status": ITEM_STATUS.INITIAL,
+		"icon": "carKey",
 	},
 	{
 		"id": 22,
@@ -50,15 +62,6 @@ signal item_found()
 		"description": "Palm trees. Beach. Sea.",
 		"status": ITEM_STATUS.INITIAL,
 		"icon": "flyer",
-	},
-	{
-		"id": 34,
-		"identifier": "letters",
-		"description": "tfkkar cdgjbp",
-		"status": ITEM_STATUS.INITIAL,
-		"icon": "characters",
-		"unlock": true,
-		"solution": "thomas dehler",
 	},
 	{
 		"id": 25,
@@ -85,7 +88,7 @@ signal item_found()
 	},
 ]
 
-@export var pois = [
+@export var pois : Array = [
 	{
 		"identifier": "grave_field",
 		"area": "map",
@@ -134,22 +137,6 @@ signal item_found()
 		"x": 780,
 		"y": 1120,
 		"width": 300,
-		"height": 40,
-	},
-	{
-		"identifier": "house",
-		"area": "map",
-		"x": 200,
-		"y": 500,
-		"width": 200,
-		"height": 70,
-	},
-	{
-		"identifier": "chapel",
-		"area": "map",
-		"x": 800,
-		"y": 20,
-		"width": 200,
 		"height": 40,
 	},
 	{
@@ -251,6 +238,7 @@ signal item_found()
 	},
 ]
 
+
 @export var submaps = [
 	{
 		"identifier": "house",
@@ -304,10 +292,6 @@ func get_text(current_element: String):
 			return "In the burial ground, graves with gravestones stand in neat rows on the icy meadow."
 		"parking_lot":
 			return "A normal parking lot paved with gray concrete blocks. Next to your car there are two other cars. No one is sitting in them."
-		"house": 
-			return "The house is a a single-story building with a low-sloped roof."
-		"chapel":
-			return "The chapel is a red brick building. The small chimney rises boldly into the sky."
 		"sofa": 
 			if status(30) == ITEM_STATUS.INITIAL:
 				update_status(30, ITEM_STATUS.FOUND)
@@ -426,6 +410,7 @@ func show_poi(identifier):
 # update status of an item
 func update_status(id: int, status: ITEM_STATUS):
 	var foundId = -1
+	print('x', inventory)
 	for i in range(inventory.size()):
 		if inventory[i].id == id:
 			foundId = i

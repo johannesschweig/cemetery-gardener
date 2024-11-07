@@ -16,7 +16,6 @@ func _on_close_pressed() -> void:
 	$VBoxContainer/feedback.visible = false
 	$VBoxContainer/input.text = ''
 
-
 func _on_unlock_pressed() -> void:
 	if $VBoxContainer/input.text == solution:
 		$VBoxContainer/feedback.text = "This code is right."
@@ -24,4 +23,3 @@ func _on_unlock_pressed() -> void:
 	else:
 		$VBoxContainer/feedback.text = "This code is wrong."
 	$VBoxContainer/feedback.visible = true
-	

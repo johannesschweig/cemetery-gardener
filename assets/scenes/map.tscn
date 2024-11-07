@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cylpvkrrnc7mw"]
+
+[ext_resource type="Texture2D" uid="uid://nwf7n4mxf0r" path="res://assets/scenes/map.jpg" id="1_ctewb"]
+[ext_resource type="Script" path="res://assets/scripts/map.gd" id="2_bt7pd"]
+[ext_resource type="PackedScene" uid="uid://0n2qsrgnb1tu" path="res://assets/scenes/camera.tscn" id="2_c17y5"]
+[ext_resource type="PackedScene" uid="uid://bsychtxjlaenw" path="res://assets/scenes/chestButton.tscn" id="3_nyf6j"]
+[ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://assets/scenes/textBox.tscn" id="4_ie0ha"]
+[ext_resource type="PackedScene" uid="uid://ruxyd072mt4a" path="res://assets/scenes/navbar.tscn" id="5_3rs2p"]
+
+[node name="map" type="Node2D"]
+script = ExtResource("2_bt7pd")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(292, 55)
+scale = Vector2(0.697905, 0.699521)
+texture = ExtResource("1_ctewb")
+centered = false
+
+[node name="Camera" parent="." instance=ExtResource("2_c17y5")]
+
+[node name="TextBox" parent="Camera" instance=ExtResource("4_ie0ha")]
+visible = false
+z_index = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 650.0
+offset_top = 338.0
+offset_right = 1291.0
+offset_bottom = 601.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="navbar" parent="Camera" instance=ExtResource("5_3rs2p")]
+offset_left = 21.0
+offset_top = -95.0
+offset_right = 1939.0
+offset_bottom = -45.0
+
+[node name="chestButton" parent="." instance=ExtResource("3_nyf6j")]
+offset_left = 1468.0
+offset_top = 638.0
+offset_right = 1551.0
+offset_bottom = 698.0

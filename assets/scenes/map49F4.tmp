@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cylpvkrrnc7mw"]
+
+[ext_resource type="Texture2D" uid="uid://dwoitit3u80dw" path="res://assets/scenes/bg_map.jpg" id="1_nkapa"]
+[ext_resource type="Script" path="res://assets/scenes/camera_.gd" id="2_w0d42"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BgMap" type="Sprite2D" parent="."]
+position = Vector2(959, 541)
+texture = ExtResource("1_nkapa")
+
+[node name="Camera2D" type="Camera2D" parent="BgMap"]
+position = Vector2(-10, 214)
+script = ExtResource("2_w0d42")

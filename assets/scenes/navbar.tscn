@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ruxyd072mt4a"]
+
+[ext_resource type="Script" path="res://assets/scripts/navbar.gd" id="1_5hc12"]
+[ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/fonts/Molot.otf" id="2_x58lq"]
+
+[node name="navbar" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_5hc12")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x58lq")
+theme_override_font_sizes/font_size = 36
+text = "Inventory"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

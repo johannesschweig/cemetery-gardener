@@ -24,10 +24,10 @@ z_index = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 650.0
-offset_top = 338.0
-offset_right = 1291.0
-offset_bottom = 601.0
+offset_left = 652.0
+offset_top = 194.0
+offset_right = 1293.0
+offset_bottom = 457.0
 grow_horizontal = 1
 grow_vertical = 1
 

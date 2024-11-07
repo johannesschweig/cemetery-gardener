@@ -5,16 +5,18 @@ signal chest_found()
 signal item_found()
 
 # show all items, hide title screen
-@export var debug = true
+@export var debug = false
 # for inventory back switching
 @export var current_area = "map"
+# last found item
+@export var found_identifier = ''
+@export var found_icon = ''
 
 enum ITEM_STATUS {
 	INITIAL,
 	FOUND,
 	USED
 }
-
 
 @export var inventory = [
 	{
@@ -410,12 +412,14 @@ func show_poi(identifier):
 # update status of an item
 func update_status(id: int, status: ITEM_STATUS):
 	var foundId = -1
-	print('x', inventory)
 	for i in range(inventory.size()):
 		if inventory[i].id == id:
 			foundId = i
 			break
 	inventory[foundId].status = status
+	if status == ITEM_STATUS.FOUND:
+		found_identifier = inventory[foundId].identifier
+		found_icon = inventory[foundId].icon
 	emit_signal("item_found")
 
 # turn identifiers into human readable titles
@@ -432,7 +436,9 @@ func click_button(identifier: String):
 	if identifier == "opel": # end of game
 		get_tree().change_scene_to_file("res://assets/scenes/end.tscn")
 	else:
-		get_node(path).setTextBox(getTitleFromIdentifier(identifier), get_text(identifier))
+		get_node(path).setTextBox(getTitleFromIdentifier(identifier), get_text(identifier), getTitleFromIdentifier(found_identifier), found_icon)
+		found_identifier = ''
+		found_icon = ''
 
 # open the unlock dialoge on an item in the inventory
 func click_unlock(identifier: String, solution: String):

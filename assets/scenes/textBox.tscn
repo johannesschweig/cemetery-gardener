@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dimljgv4bf5wr"]
+[gd_scene load_steps=12 format=3 uid="uid://dimljgv4bf5wr"]
 
 [ext_resource type="Script" path="res://assets/scripts/text_box.gd" id="1_rkurc"]
 [ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="2_66y4p"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/fonts/Molot.otf" id="2_ll06c"]
+[ext_resource type="Texture2D" uid="uid://3btm0jr7my84" path="res://assets/scenes/carKey.png" id="4_u5hv7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egqm2"]
 content_margin_left = 12.0
@@ -39,6 +40,12 @@ variation_opentype = {
 2003265652: 300
 }
 baseline_offset = 0.5
+
+[sub_resource type="FontVariation" id="FontVariation_4qqmd"]
+base_font = ExtResource("2_66y4p")
+variation_opentype = {
+2003265652: 500
+}
 
 [node name="TextBox" type="PanelContainer"]
 anchors_preset = 15
@@ -88,5 +95,27 @@ theme_override_fonts/normal_font = SubResource("FontVariation_ibu3e")
 theme_override_font_sizes/normal_font_size = 24
 text = "It is an old stone fountain with a statue in the middle. It is completely frozen over. Under you can see a fist-sized rectangular object under the ice. You knock against the ice. It is several centimeters thick.ggg"
 fit_content = true
+
+[node name="found" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="icon" type="TextureRect" parent="VBoxContainer/found"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_u5hv7")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="foundItem" type="RichTextLabel" parent="VBoxContainer/found"]
+self_modulate = Color(0, 0, 0, 1)
+clip_contents = false
+custom_minimum_size = Vector2(400, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/normal_font = SubResource("FontVariation_4qqmd")
+theme_override_font_sizes/normal_font_size = 24
+text = "Hammer found!"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

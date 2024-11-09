@@ -21,8 +21,8 @@ variation_opentype = {
 }
 
 [node name="inventoryItem" type="PanelContainer"]
-offset_right = 196.0
-offset_bottom = 292.0
+offset_right = 352.0
+offset_bottom = 502.0
 theme_override_styles/panel = ExtResource("1_q3pgg")
 script = ExtResource("1_ba500")
 
@@ -38,7 +38,7 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 
 [node name="icon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(240, 240)
 layout_mode = 2
 texture = ExtResource("2_en7by")
 expand_mode = 3

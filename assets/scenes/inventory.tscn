@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfsleg4uw83js"]
+[gd_scene load_steps=12 format=3 uid="uid://dfsleg4uw83js"]
 
 [ext_resource type="Script" path="res://assets/scripts/inventory.gd" id="1_t5wwd"]
 [ext_resource type="PackedScene" uid="uid://ca8m6bwg1wqqh" path="res://assets/scenes/inventoryItem.tscn" id="1_vfg8w"]
+[ext_resource type="StyleBox" uid="uid://cfhvhlgsfrnl4" path="res://assets/scenes/button-hover.tres" id="3_fgpaq"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/fonts/Molot.otf" id="3_wunlj"]
+[ext_resource type="StyleBox" uid="uid://bokxtfpcpnfwc" path="res://assets/scenes/button-normal.tres" id="4_bmq3q"]
 [ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/fonts/Montserrat-VariableFont_wght.ttf" id="4_swwwq"]
 [ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://assets/scenes/textBox.tscn" id="5_nfi0g"]
 [ext_resource type="PackedScene" uid="uid://dg53lhvlxxxp6" path="res://assets/scenes/unlockBox.tscn" id="6_1fbu7"]
@@ -10,10 +12,11 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0cv2"]
 bg_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfn6l"]
-content_margin_top = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="FontVariation" id="FontVariation_1ciu1"]
+base_font = ExtResource("3_wunlj")
+variation_opentype = {
+2003265652: 400
+}
 
 [sub_resource type="FontVariation" id="FontVariation_lxjc4"]
 base_font = ExtResource("4_swwwq")
@@ -35,14 +38,32 @@ script = ExtResource("1_t5wwd")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="closeInventory" type="Button" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_1ciu1")
+theme_override_font_sizes/font_size = 64
+text = "Inventory"
+
+[node name="closeInventory" type="Button" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_wunlj")
 theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = SubResource("StyleBoxFlat_rfn6l")
-text = "Close inventory"
+theme_override_styles/hover = ExtResource("3_fgpaq")
+theme_override_styles/normal = ExtResource("4_bmq3q")
+text = "Close"
+autowrap_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -110,4 +131,4 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[connection signal="pressed" from="VBoxContainer/closeInventory" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/closeInventory" to="." method="_on_button_pressed"]

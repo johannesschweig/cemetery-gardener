@@ -47,8 +47,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wsgqf")
 text = "Back	"
 
 [node name="navbar" parent="." instance=ExtResource("6_gsfis")]
-offset_right = 1914.0
-offset_bottom = 50.0
+offset_left = 1606.0
+offset_top = 26.0
+offset_right = 1890.0
+offset_bottom = 254.0
 
 [node name="gateButton" parent="." instance=ExtResource("7_h7jh7")]
 visible = false

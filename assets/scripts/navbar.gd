@@ -3,9 +3,9 @@ extends Control
 func getLabelText() -> String:
 	var foundItems = GameManager.getNumberOfFoundItems()
 	if foundItems == 0:
-		return "Inventory (Empty)"
+		return "Open Inventory (Empty)"
 	else:
-		return "Inventory (%s)" % foundItems
+		return "Open Inventory (%s)" % foundItems
 
 func _ready() -> void:
 	GameManager.item_found.connect(_on_item_found)

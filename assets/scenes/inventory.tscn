@@ -114,6 +114,13 @@ theme_override_font_sizes/font_size = 24
 text = "Your inventory is empty	"
 horizontal_alignment = 1
 
+[node name="UnlockBox" parent="." instance=ExtResource("6_1fbu7")]
+visible = false
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [node name="TextBox" parent="." instance=ExtResource("5_nfi0g")]
 visible = false
 z_index = 2
@@ -122,13 +129,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 2.02
-
-[node name="UnlockBox" parent="." instance=ExtResource("6_1fbu7")]
-visible = false
-z_index = 1
-custom_minimum_size = Vector2(400, 150)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/closeInventory" to="." method="_on_button_pressed"]

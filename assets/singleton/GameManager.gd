@@ -5,7 +5,7 @@ signal chest_found()
 signal item_found()
 
 # show all items, hide title screen
-@export var debug = true
+@export var debug = false
 # for inventory back switching
 @export var current_area = "map"
 # last found item

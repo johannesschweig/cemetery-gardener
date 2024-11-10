@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dg53lhvlxxxp6"]
+[gd_scene load_steps=14 format=3 uid="uid://dg53lhvlxxxp6"]
 
 [ext_resource type="Script" path="res://assets/scenes/unlock_box.gd" id="1_r21s8"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/fonts/Molot.otf" id="2_vgeyo"]
@@ -42,6 +42,12 @@ variation_opentype = {
 }
 baseline_offset = 0.5
 
+[sub_resource type="FontVariation" id="FontVariation_p3jlm"]
+base_font = ExtResource("3_xc8ug")
+variation_opentype = {
+2003265652: 400
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfcl6"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 1
@@ -51,6 +57,8 @@ border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
 [node name="UnlockBox" type="PanelContainer"]
+z_index = 2
+custom_minimum_size = Vector2(600, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -101,9 +109,12 @@ fit_content = true
 
 [node name="input" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(0.497474, 0.497474, 0.497474, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = SubResource("FontVariation_p3jlm")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_tfcl6")
+placeholder_text = "••••"
 
 [node name="unlock" type="Button" parent="VBoxContainer"]
 layout_mode = 2

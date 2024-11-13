@@ -38,16 +38,16 @@ script = ExtResource("1_t5wwd")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="header" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/header"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="title" type="Label" parent="VBoxContainer/header/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -55,7 +55,7 @@ theme_override_fonts/font = SubResource("FontVariation_1ciu1")
 theme_override_font_sizes/font_size = 64
 text = "Inventory"
 
-[node name="closeInventory" type="Button" parent="VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="closeInventory" type="Button" parent="VBoxContainer/header/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_wunlj")
@@ -65,47 +65,50 @@ theme_override_styles/normal = ExtResource("4_bmq3q")
 text = "Close"
 autowrap_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="items" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="PanelContainer" type="HFlowContainer" parent="VBoxContainer/MarginContainer"]
+[node name="itemsContainer" type="HFlowContainer" parent="VBoxContainer/items"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
 
-[node name="Node2D" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Node2D2" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D2" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Node2D3" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D3" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Node2D4" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D4" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Node2D6" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D6" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Node2D7" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D7" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Node2D8" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D8" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Node2D9" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D9" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Node2D5" parent="VBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("1_vfg8w")]
+[node name="Node2D5" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="emptyState" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.627451)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -130,4 +133,4 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 2.02
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer2/HBoxContainer/closeInventory" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/header/HBoxContainer/closeInventory" to="." method="_on_button_pressed"]

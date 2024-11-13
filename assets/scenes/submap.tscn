@@ -15,6 +15,7 @@ bg_color = Color(0, 0, 0, 1)
 script = ExtResource("4_i4yjw")
 
 [node name="bg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(583, 45)
 scale = Vector2(0.574869, 0.623259)
 texture = ExtResource("2_jeukx")

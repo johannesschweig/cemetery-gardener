@@ -18,6 +18,7 @@ enum ITEM_STATUS {
 	USED
 }
 
+
 @export var inventory = [
 	{
 		"id": 34,

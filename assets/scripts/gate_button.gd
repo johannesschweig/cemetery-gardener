@@ -2,12 +2,12 @@ extends Button
 
 func _ready() -> void:
 	if GameManager.current_area == 'chapel':
-		$".".visible = true
+		self.visible = true
 		GameManager.crematorium_key_found.connect(_on_crematorium_key_found)
 		## Change image if replacement key used
 		if GameManager.status(22) == 2:
-			$Sprite2D.texture = load("res://assets/scenes/gateOpen.png")
-			$Label.text = '40'
+			%Sprite2D.texture = load("res://assets/scenes/gateOpen.png")
+			%Label.text = '40'
 
 func _on_pressed() -> void:
 	# if no key -> text
@@ -20,5 +20,5 @@ func _on_pressed() -> void:
 
 func _on_crematorium_key_found() -> void:
 	# This will run when the signal is emitted from GameManager
-	$Sprite2D.texture = load("res://assets/scenes/gateOpen.png")
-	$Label.text = '40'
+	%Sprite2D.texture = load("res://assets/scenes/gateOpen.png")
+	%Label.text = '40'

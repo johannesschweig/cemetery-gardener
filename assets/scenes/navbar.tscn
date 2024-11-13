@@ -14,11 +14,12 @@ grow_horizontal = 2
 size_flags_horizontal = 3
 script = ExtResource("1_5hc12")
 
-[node name="Button" type="Button" parent="."]
+[node name="openInventory" type="Button" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x58lq")
 theme_override_font_sizes/font_size = 36
 text = "Open Inventory (Empty)"
 autowrap_mode = 2
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="openInventory" to="." method="_on_button_pressed"]

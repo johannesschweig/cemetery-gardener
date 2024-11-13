@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsychtxjlaenw"]
+
+[ext_resource type="Script" path="res://elements/scripts/chest_button.gd" id="1_1rgj8"]
+[ext_resource type="Texture2D" uid="uid://yqb5mcvxhmd2" path="res://elements/scenes/chest.png" id="2_vl3eg"]
+[ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="3_cmg5x"]
+
+[node name="chestButton" type="Button"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.117647)
+offset_right = 83.0
+offset_bottom = 60.0
+script = ExtResource("1_1rgj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(37, 9)
+scale = Vector2(0.541667, 0.541667)
+texture = ExtResource("2_vl3eg")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 48.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_cmg5x")
+theme_override_font_sizes/font_size = 24
+text = "16"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

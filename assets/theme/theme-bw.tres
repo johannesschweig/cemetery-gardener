@@ -1,0 +1,62 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://riv3is6s0hbn"]
+
+[ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="1_dlglh"]
+[ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/theme/fonts/Montserrat-VariableFont_wght.ttf" id="2_70rlp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivpk5"]
+bg_color = Color(0.223103, 0.223103, 0.223103, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r052"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xji6"]
+bg_color = Color(0.377919, 0.377919, 0.377919, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_didec"]
+bg_color = Color(0.856067, 0.856067, 0.856067, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1fq8"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4loat"]
+bg_color = Color(0.716296, 0.716296, 0.716296, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_l6ksg"]
+base_font = ExtResource("2_70rlp")
+variation_opentype = {
+2003265652: 400
+}
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_dlglh")
+Button/styles/hover = SubResource("StyleBoxFlat_ivpk5")
+Button/styles/normal = SubResource("StyleBoxFlat_3r052")
+Button/styles/pressed = SubResource("StyleBoxFlat_8xji6")
+ButtonLarge/base_type = &"Button"
+ButtonLarge/colors/font_color = Color(0, 0, 0, 1)
+ButtonLarge/colors/font_focus_color = Color(0, 0, 0, 1)
+ButtonLarge/colors/font_hover_color = Color(0, 0, 0, 1)
+ButtonLarge/colors/font_pressed_color = Color(0, 0, 0, 1)
+ButtonLarge/font_sizes/font_size = 64
+ButtonLarge/styles/hover = SubResource("StyleBoxFlat_didec")
+ButtonLarge/styles/normal = SubResource("StyleBoxFlat_j1fq8")
+ButtonLarge/styles/pressed = SubResource("StyleBoxFlat_4loat")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = SubResource("FontVariation_l6ksg")

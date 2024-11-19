@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b680hmmu7mdqi"]
+
+[ext_resource type="Script" path="res://elements/mess/submap_button.gd" id="1_oq1ed"]
+
+[node name="submapButton" type="Button"]
+self_modulate = Color(1, 1, 1, 0.0509804)
+offset_right = 150.0
+offset_bottom = 150.0
+script = ExtResource("1_oq1ed")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

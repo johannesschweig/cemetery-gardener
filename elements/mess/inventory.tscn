@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfsleg4uw83js"]
+
+[ext_resource type="Script" path="res://elements/mess/inventory.gd" id="1_t5wwd"]
+[ext_resource type="PackedScene" uid="uid://ca8m6bwg1wqqh" path="res://elements/mess/inventoryItem.tscn" id="1_vfg8w"]
+[ext_resource type="StyleBox" uid="uid://cfhvhlgsfrnl4" path="res://elements/mess/button-hover.tres" id="3_fgpaq"]
+[ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="3_wunlj"]
+[ext_resource type="StyleBox" uid="uid://bokxtfpcpnfwc" path="res://elements/mess/button-normal.tres" id="4_bmq3q"]
+[ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/theme/fonts/Montserrat-VariableFont_wght.ttf" id="4_swwwq"]
+[ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://elements/mess/textBox.tscn" id="5_nfi0g"]
+[ext_resource type="PackedScene" uid="uid://dg53lhvlxxxp6" path="res://elements/mess/unlockBox.tscn" id="6_1fbu7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0cv2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_1ciu1"]
+base_font = ExtResource("3_wunlj")
+variation_opentype = {
+2003265652: 400
+}
+
+[sub_resource type="FontVariation" id="FontVariation_lxjc4"]
+base_font = ExtResource("4_swwwq")
+variation_opentype = {
+2003265652: 400
+}
+
+[node name="inventory" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0cv2")
+script = ExtResource("1_t5wwd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="header" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/header"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="VBoxContainer/header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_1ciu1")
+theme_override_font_sizes/font_size = 64
+text = "Inventory"
+
+[node name="closeInventory" type="Button" parent="VBoxContainer/header/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wunlj")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/hover = ExtResource("3_fgpaq")
+theme_override_styles/normal = ExtResource("4_bmq3q")
+text = "Close"
+autowrap_mode = 2
+
+[node name="items" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="itemsContainer" type="HFlowContainer" parent="VBoxContainer/items"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+
+[node name="Node2D" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="Node2D2" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="Node2D3" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="Node2D4" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="Node2D6" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="Node2D7" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="Node2D8" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="Node2D9" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="Node2D5" parent="VBoxContainer/items/itemsContainer" instance=ExtResource("1_vfg8w")]
+layout_mode = 2
+
+[node name="emptyState" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.627451)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_lxjc4")
+theme_override_font_sizes/font_size = 24
+text = "Your inventory is empty	"
+horizontal_alignment = 1
+
+[node name="UnlockBox" parent="." instance=ExtResource("6_1fbu7")]
+visible = false
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextBox" parent="." instance=ExtResource("5_nfi0g")]
+visible = false
+z_index = 2
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.02
+
+[connection signal="pressed" from="VBoxContainer/header/HBoxContainer/closeInventory" to="." method="_on_button_pressed"]

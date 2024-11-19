@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbcypf1w86cvo"]
+
+[ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="2_ud8gu"]
+
+[sub_resource type="FontVariation" id="FontVariation_5fmyi"]
+base_font = ExtResource("2_ud8gu")
+variation_opentype = {
+2003265652: 600
+}
+
+[node name="end" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -297.5
+offset_right = 400.0
+offset_bottom = 297.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="description" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+text = "You look at the parking lot. There is indeed a white Opel Astra. Through the rear window you can see a leather suitcase in the back. You unlock the car and open the leather suitcase. Inside are shirts and other clothes, neatly sorted. You push a few socks to the side and find several bundles of money and a German and a Soviet passport. In the German passport a tired-looking Boris Amburger looks at you. Born in Mulda, Saxony. In the old Soviet passport a young man in uniform, born in Moscow.
+
+You take the passports, close the suitcase and lock the Opel. You get into your car and send a radio message. It might be a while before your colleagues arrive. On the way there you saw a bakery. You now feel like having something warm to drink and maybe a roll for 35 cents."
+autowrap_mode = 2
+
+[node name="spacer" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="theEnd" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_5fmyi")
+theme_override_font_sizes/font_size = 48
+text = "The end"
+
+[node name="spacer2" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="credit" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Johannes Schweig, 2024"
+horizontal_alignment = 2

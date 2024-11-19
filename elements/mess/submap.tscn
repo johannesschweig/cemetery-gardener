@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://drivo45asyw7l"]
+
+[ext_resource type="PackedScene" uid="uid://0n2qsrgnb1tu" path="res://elements/mess/camera.tscn" id="1_1lv0y"]
+[ext_resource type="Texture2D" uid="uid://dw67j2ntcj23j" path="res://elements/mess/cellar.jpg" id="2_jeukx"]
+[ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://elements/mess/textBox.tscn" id="2_mssm8"]
+[ext_resource type="Script" path="res://elements/mess/submap.gd" id="4_i4yjw"]
+[ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="5_v48wd"]
+[ext_resource type="PackedScene" uid="uid://ruxyd072mt4a" path="res://elements/mess/navbar.tscn" id="6_gsfis"]
+[ext_resource type="PackedScene" uid="uid://3cjvara55ydk" path="res://elements/mess/gateButton.tscn" id="7_h7jh7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsgqf"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="map" type="Node2D"]
+script = ExtResource("4_i4yjw")
+
+[node name="bg" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(583, 45)
+scale = Vector2(0.574869, 0.623259)
+texture = ExtResource("2_jeukx")
+centered = false
+
+[node name="Camera" parent="." instance=ExtResource("1_1lv0y")]
+position = Vector2(460, 364)
+
+[node name="TextBox" parent="Camera" instance=ExtResource("2_mssm8")]
+visible = false
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = 8.0
+offset_right = 854.0
+offset_bottom = 349.0
+
+[node name="backToMap" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 69.0
+offset_right = 275.0
+offset_bottom = 172.0
+theme_override_fonts/font = ExtResource("5_v48wd")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_wsgqf")
+text = "Back	"
+
+[node name="navbar" parent="." instance=ExtResource("6_gsfis")]
+offset_left = 1606.0
+offset_top = 26.0
+offset_right = 1890.0
+offset_bottom = 254.0
+
+[node name="gateButton" parent="." instance=ExtResource("7_h7jh7")]
+visible = false
+offset_left = 729.0
+offset_top = 658.0
+offset_right = 856.0
+offset_bottom = 729.0
+
+[connection signal="pressed" from="backToMap" to="." method="_on_back_to_map_pressed"]

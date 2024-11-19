@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://tb2p48eyylvi"]
+[gd_scene load_steps=6 format=3 uid="uid://tb2p48eyylvi"]
 
 [ext_resource type="Texture2D" uid="uid://d1du5cfi42gak" path="res://elements/intro/portrait.png" id="1_dtlyy"]
+[ext_resource type="Script" path="res://elements/intro/intro.gd" id="1_l1k2x"]
 [ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/theme/fonts/Montserrat-VariableFont_wght.ttf" id="2_ug4rc"]
 
 [sub_resource type="FontVariation" id="FontVariation_36rw4"]
@@ -16,7 +17,8 @@ variation_opentype = {
 }
 spacing_bottom = 24
 
-[node name="intro1" type="Node2D"]
+[node name="intro2" type="Node2D"]
+script = ExtResource("1_l1k2x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -91,3 +93,5 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonLarge"
 text = "Continue"
+
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]

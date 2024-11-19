@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://tb2p48eyylvi"]
+[gd_scene load_steps=5 format=3 uid="uid://tb2p48eyylvi"]
 
-[ext_resource type="Texture2D" uid="uid://cv0kbfvdux6ah" path="res://elements/intro/intro-1.jpg" id="1_njrox"]
+[ext_resource type="Texture2D" uid="uid://d1du5cfi42gak" path="res://elements/intro/portrait.png" id="1_dtlyy"]
+[ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/theme/fonts/Montserrat-VariableFont_wght.ttf" id="2_ug4rc"]
+
+[sub_resource type="FontVariation" id="FontVariation_36rw4"]
+base_font = ExtResource("2_ug4rc")
+variation_opentype = {
+2003265652: 600
+}
+
+[sub_resource type="FontVariation" id="FontVariation_22mib"]
+base_font = ExtResource("2_ug4rc")
+variation_opentype = {
+2003265652: 400
+}
+spacing_bottom = 24
 
 [node name="intro1" type="Node2D"]
 
@@ -22,13 +36,53 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="description" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 text = "You are a police detective called to a cemetery because of a missing gardener. Examine the clues and try to find out what happened to him."
 autowrap_mode = 2
 
-[node name="spacer" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+[node name="spacer2" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_dtlyy")
+expand_mode = 3
+
+[node name="spacer4" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="missing" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_36rw4")
+theme_override_font_sizes/font_size = 48
+text = "Missing"
+uppercase = true
+
+[node name="spacer3" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="details" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_22mib")
+text = "Name: Boris Amburger
+Occupation: Cemetery Gardener
+Date of birth: 03.04.1951
+Place of birth: Muldau, Germany
+Missing since: 16.01.2003"
+
+[node name="spacer" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
 [node name="continue" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
@@ -37,7 +91,3 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonLarge"
 text = "Continue"
-
-[node name="Intro-1" type="Sprite2D" parent="."]
-position = Vector2(2748, 632)
-texture = ExtResource("1_njrox")

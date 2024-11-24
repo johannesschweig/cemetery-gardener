@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://l506cevix8bm"]
+[gd_scene load_steps=10 format=3 uid="uid://l506cevix8bm"]
 
+[ext_resource type="Script" path="res://elements/world/world.gd" id="1_aoxtd"]
 [ext_resource type="Script" path="res://elements/world/stage.gd" id="1_rw8uq"]
 [ext_resource type="PackedScene" uid="uid://dy328j1g2yjkc" path="res://elements/intro/intro1.tscn" id="2_6caqo"]
-[ext_resource type="PackedScene" uid="uid://ruxyd072mt4a" path="res://elements/gui/gui.tscn" id="2_toqo4"]
+[ext_resource type="PackedScene" uid="uid://ruxyd072mt4a" path="res://elements/gui/Gui.tscn" id="2_toqo4"]
 [ext_resource type="PackedScene" uid="uid://tb2p48eyylvi" path="res://elements/intro/intro2.tscn" id="3_jx385"]
 [ext_resource type="PackedScene" uid="uid://cylpvkrrnc7mw" path="res://elements/maps/yard.tscn" id="3_kpuet"]
 [ext_resource type="PackedScene" uid="uid://dbcypf1w86cvo" path="res://elements/end/end.tscn" id="4_ui816"]
@@ -10,15 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://drivo45asyw7l" path="res://elements/mess/submap.tscn" id="7_m3yus"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_aoxtd")
 
-[node name="stage" type="Node2D" parent="."]
+[node name="Stage" type="Node2D" parent="."]
 script = ExtResource("1_rw8uq")
 stages = Array[PackedScene]([ExtResource("2_6caqo"), ExtResource("3_jx385"), ExtResource("4_xmwhi"), ExtResource("3_kpuet"), ExtResource("4_ui816")])
 maps = Array[PackedScene]([ExtResource("3_kpuet"), ExtResource("7_m3yus")])
 
-[node name="gui" type="CanvasLayer" parent="."]
+[node name="Gui" parent="." instance=ExtResource("2_toqo4")]
 visible = false
-
-[node name="gui" parent="gui" instance=ExtResource("2_toqo4")]
-offset_left = 778.0
-offset_right = -856.0

@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://cylpvkrrnc7mw"]
+[gd_scene load_steps=4 format=4 uid="uid://cylpvkrrnc7mw"]
 
 [ext_resource type="PackedScene" uid="uid://bsychtxjlaenw" path="res://elements/mess/chestButton.tscn" id="3_nyf6j"]
 [ext_resource type="Script" path="res://elements/maps/tilemap.gd" id="4_so3t6"]
 [ext_resource type="TileSet" uid="uid://dntamng3rdtv6" path="res://assets/tileset.tres" id="5_hampe"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dsuu"]
-bg_color = Color(1, 1, 1, 1)
 
 [node name="yard" type="Node2D"]
 
@@ -20,21 +17,3 @@ unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAAOAAgAAQAHAAAAAAAHAAgAAQAAAAAAAAAWAAgAAQAAAAQAAAAOAAIAAQAHAAQAAAALAA8AAQAKAAAAAAANAA8AAQAMAAAAAAARAA8AAQAOAAAAAAAIAAMAAQAEAAAAAAAUAAMAAQAEAAAAAFAAAA8AAQALAAQAAFABAA8AAQALAAQAAFACAA8AAQALAAQAAFADAA8AAQALAAQAAFAEAA8AAQALAAQAAFAFAA8AAQALAAQAAFAGAA8AAQALAAQAAFAHAA8AAQALAAQAAFAIAA8AAQALAAQAAFAFAAwAAQAEAAAAAGAJAA8AAQALAAYAAAAJAA0AAQALAAYAADATAA0AAQALAAYAAGATAA8AAQALAAYAAFAKAA0AAQALAAQAAFALAA0AAQALAAQAAFASAA0AAQALAAQAAFAUAA8AAQALAAQAAFAVAA8AAQALAAQAAFAWAA8AAQALAAQAAFAXAA8AAQALAAQAAFAYAA8AAQALAAQAAFAZAA8AAQALAAQAAFAaAA8AAQALAAQAAFAbAA8AAQALAAQAAFAcAA8AAQALAAQAAFAdAA8AAQALAAQAAFAJAA4AAQALAAQAADATAA4AAQALAAQAADAOAA0AAQANAAYAAAANAA0AAQALAAQAAFAMAA0AAQALAAQAAFARAA0AAQAMAAQAAAAWAAwAAQAEAAAAAFA=")
 tile_set = ExtResource("5_hampe")
 script = ExtResource("4_so3t6")
-
-[node name="PoiLabelPanel" type="PanelContainer" parent="TileMapLayer"]
-unique_name_in_owner = true
-offset_right = 85.0
-offset_bottom = 56.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2dsuu")
-
-[node name="Margin" type="MarginContainer" parent="TileMapLayer/PoiLabelPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 8
-
-[node name="PoiLabel" type="Label" parent="TileMapLayer/PoiLabelPanel/Margin"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "test"

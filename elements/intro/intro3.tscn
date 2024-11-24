@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cboy0ykeulsrb"]
+[gd_scene load_steps=3 format=3 uid="uid://cboy0ykeulsrb"]
 
 [ext_resource type="Script" path="res://elements/intro/intro.gd" id="1_u566y"]
+[ext_resource type="Script" path="res://components/MyButton.gd" id="2_8i6xl"]
 
 [node name="intro3" type="Node2D"]
 script = ExtResource("1_u566y")
@@ -41,5 +42,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonLarge"
 text = "Continue"
+script = ExtResource("2_8i6xl")
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]

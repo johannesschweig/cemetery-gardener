@@ -1,25 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://ruxyd072mt4a"]
+[gd_scene load_steps=5 format=3 uid="uid://ruxyd072mt4a"]
 
 [ext_resource type="Script" path="res://elements/gui/gui.gd" id="1_5hc12"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="2_x58lq"]
+[ext_resource type="Script" path="res://components/MyButton.gd" id="3_qhfmc"]
+[ext_resource type="PackedScene" uid="uid://bl8m5i5wwrd4f" path="res://components/PoiLabelPanel.tscn" id="4_hitax"]
 
-[node name="gui" type="PanelContainer"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 1595.0
-offset_top = 39.0
-offset_right = -39.0
-offset_bottom = 269.0
-grow_horizontal = 2
-size_flags_horizontal = 3
+[node name="Gui" type="CanvasLayer"]
 script = ExtResource("1_5hc12")
 
-[node name="openInventory" type="Button" parent="."]
+[node name="OpenInventory" type="Button" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -286.0
+offset_bottom = 230.0
+grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_x58lq")
 theme_override_font_sizes/font_size = 36
 text = "Open Inventory (Empty)"
 autowrap_mode = 2
+script = ExtResource("3_qhfmc")
 
-[connection signal="pressed" from="openInventory" to="." method="_on_button_pressed"]
+[node name="PoiLabelPanel" parent="." instance=ExtResource("4_hitax")]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="OpenInventory" to="." method="_on_button_pressed"]

@@ -6,7 +6,7 @@ func set_item(i, show: bool) -> void:
 	item = i
 	%name.text = GameManager.getTitleFromIdentifier(item.identifier)
 	%description.text = item.description
-	%icon.texture = load("res://assets/scenes/" + item.icon + ".png")
+	%icon.texture = load("res://elements/mess/" + item.icon + ".png")
 	# unlock button
 	if item.has('unlock'):
 		%unlock.visible = true

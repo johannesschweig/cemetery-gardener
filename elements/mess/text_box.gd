@@ -6,7 +6,7 @@ func setTextBox(title: String, text: String, foundIdentifier: String, foundIcon:
 	%found.visible = false
 	if foundIdentifier:
 		%foundItem.text = foundIdentifier + " found"
-		%foundIcon.texture = load("res://assets/scenes/" + foundIcon + ".png")
+		%foundIcon.texture = load("res://elements/mess/" + foundIcon + ".png")
 		%found.visible = true
 	self.visible = true
 

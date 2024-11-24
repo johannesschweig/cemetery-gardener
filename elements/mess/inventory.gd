@@ -20,6 +20,6 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	if GameManager.current_area == 'map':
-		get_tree().change_scene_to_file("res://assets/scenes/map.tscn")
+		get_tree().change_scene_to_file("res://elements/mess/map.tscn")
 	else:
-		get_tree().change_scene_to_file("res://assets/scenes/submap.tscn")
+		get_tree().change_scene_to_file("res://elements/mess/submap.tscn")

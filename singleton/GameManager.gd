@@ -7,7 +7,7 @@ signal item_found()
 # show all items, hide title screen
 @export var debug = false
 # for inventory back switching
-@export var current_area = "map"
+@export var current_area = "map" # TODO remove
 # last found item
 @export var found_identifier = ''
 @export var found_icon = ''
@@ -430,12 +430,12 @@ func getTitleFromIdentifier(identifier: String):
 # a button of a poi or inventory item is clicked
 func click_button(identifier: String):
 	var path
-	if get_node_or_null("/root/map"): # map or submap
-		path = "/root/map/Camera/TextBox"
+	if get_node_or_null("/root/World"): # map or submap
+		path = "/root/World/stage/map/Camera/TextBox"
 	else: # inventory
-		path = "/root/inventory/TextBox"
+		path = "/root/inventory/TextBox" # TODO
 	if identifier == "opel": # end of game
-		get_tree().change_scene_to_file("res://assets/scenes/end.tscn")
+		get_tree().change_scene_to_file("res://elements/end/end.tscn")
 	else:
 		get_node(path).setTextBox(getTitleFromIdentifier(identifier), get_text(identifier), getTitleFromIdentifier(found_identifier), found_icon)
 		found_identifier = ''
@@ -443,5 +443,5 @@ func click_button(identifier: String):
 
 # open the unlock dialoge on an item in the inventory
 func click_unlock(identifier: String, solution: String):
-	var path = "/root/inventory/UnlockBox"
+	var path = "/root/inventory/UnlockBox" # TODO
 	get_node(path).setUnlockBox(identifier, solution)

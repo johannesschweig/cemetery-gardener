@@ -12,7 +12,7 @@ func _ready() -> void:
 	%openInventory.text = getLabelText()
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/scenes/inventory.tscn")
+	get_tree().change_scene_to_file("res://elements/mess/inventory.tscn")
 
 func _on_item_found() -> void:
 	%openInventory.text = getLabelText()

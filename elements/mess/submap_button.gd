@@ -9,4 +9,4 @@ func setButton(submap):
 
 func _on_pressed() -> void:
 	GameManager.current_area = identifier
-	get_tree().change_scene_to_file("res://assets/scenes/submap.tscn")
+	get_parent().get_parent().get_parent().change_map(1)

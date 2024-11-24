@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://0n2qsrgnb1tu"]
-
-[node name="Camera2D" type="Camera2D"]
-position = Vector2(-21, 95)
-limit_left = 0
-limit_top = 0
-limit_right = 1920
-limit_bottom = 1080

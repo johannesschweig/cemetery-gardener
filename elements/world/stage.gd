@@ -21,9 +21,9 @@ func next_stage():
 	clear_children()
 	add_child(instance)
 	if current_stage == 3:
-		get_parent().get_node("Gui").visible = true
+		get_node("/root/World/Gui").visible = true
 	else:
-		get_parent().get_node("Gui").visible = false
+		get_node("/root/World/Gui").visible = false
 # TODO incorporate debug flag
 
 func change_map(map: int):

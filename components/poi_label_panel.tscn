@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bl8m5i5wwrd4f"]
 
-[ext_resource type="Script" path="res://components/poiLabelPanel.gd" id="1_1ym0j"]
+[ext_resource type="Script" path="res://components/poi_label_panel.gd" id="1_1ym0j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dsuu"]
 bg_color = Color(1, 1, 1, 1)

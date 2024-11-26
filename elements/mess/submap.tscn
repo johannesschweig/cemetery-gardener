@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://elements/mess/textBox.tscn" id="2_mssm8"]
 [ext_resource type="Script" path="res://elements/mess/submap.gd" id="4_i4yjw"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="5_v48wd"]
-[ext_resource type="PackedScene" uid="uid://ruxyd072mt4a" path="res://elements/gui/Gui.tscn" id="6_gsfis"]
+[ext_resource type="PackedScene" uid="uid://ruxyd072mt4a" path="res://elements/gui/gui.tscn" id="6_gsfis"]
 [ext_resource type="PackedScene" uid="uid://3cjvara55ydk" path="res://elements/mess/gateButton.tscn" id="7_h7jh7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsgqf"]

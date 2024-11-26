@@ -1,15 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://ruxyd072mt4a"]
+[gd_scene load_steps=6 format=3 uid="uid://ruxyd072mt4a"]
 
 [ext_resource type="Script" path="res://elements/gui/gui.gd" id="1_5hc12"]
+[ext_resource type="Script" path="res://elements/gui/inventory.gd" id="2_23ikt"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="2_x58lq"]
-[ext_resource type="Script" path="res://components/MyButton.gd" id="3_qhfmc"]
-[ext_resource type="PackedScene" uid="uid://bl8m5i5wwrd4f" path="res://components/PoiLabelPanel.tscn" id="4_hitax"]
+[ext_resource type="Script" path="res://components/my_button.gd" id="3_qhfmc"]
+[ext_resource type="PackedScene" uid="uid://bl8m5i5wwrd4f" path="res://components/poi_label_panel.tscn" id="4_hitax"]
 
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource("1_5hc12")
 
-[node name="OpenInventory" type="Button" parent="."]
+[node name="Inventory" type="Control" parent="."]
 unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_23ikt")
+
+[node name="OpenInventory" type="Button" parent="Inventory"]
+unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -25,4 +37,4 @@ script = ExtResource("3_qhfmc")
 [node name="PoiLabelPanel" parent="." instance=ExtResource("4_hitax")]
 unique_name_in_owner = true
 
-[connection signal="pressed" from="OpenInventory" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Inventory/OpenInventory" to="." method="_on_button_pressed"]

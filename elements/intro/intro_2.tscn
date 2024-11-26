@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d1du5cfi42gak" path="res://elements/intro/portrait.png" id="1_dtlyy"]
 [ext_resource type="Script" path="res://elements/intro/intro.gd" id="1_l1k2x"]
 [ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/theme/fonts/Montserrat-VariableFont_wght.ttf" id="2_ug4rc"]
-[ext_resource type="Script" path="res://components/MyButton.gd" id="4_q7dsr"]
+[ext_resource type="Script" path="res://components/my_button.gd" id="4_q7dsr"]
 
 [sub_resource type="FontVariation" id="FontVariation_36rw4"]
 base_font = ExtResource("2_ug4rc")

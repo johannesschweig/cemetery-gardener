@@ -1,4 +1,4 @@
 extends PanelContainer
 
-func setName(name: String):
+func set_text(name: String):
 	%PoiLabel.text = name

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://elements/intro/intro.gd" id="1_ocvwf"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="3_2hp3g"]
-[ext_resource type="Script" path="res://components/MyButton.gd" id="3_lroto"]
+[ext_resource type="Script" path="res://components/my_button.gd" id="3_lroto"]
 
 [node name="intro1" type="Node2D"]
 script = ExtResource("1_ocvwf")

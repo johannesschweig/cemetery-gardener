@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://40wq3sy7vn14"
-path="res://.godot/imported/mobilePhone.png-a1c57ff68d69a2dd75b77a5cf40bbecc.ctex"
+uid="uid://byc31uhtj6chc"
+path="res://.godot/imported/spare_key.png-b149f4ecc4cd77c03b4cb9d8e7f51b93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://elements/mess/mobilePhone.png"
-dest_files=["res://.godot/imported/mobilePhone.png-a1c57ff68d69a2dd75b77a5cf40bbecc.ctex"]
+source_file="res://assets/items/spare_key.png"
+dest_files=["res://.godot/imported/spare_key.png-b149f4ecc4cd77c03b4cb9d8e7f51b93.ctex"]
 
 [params]
 

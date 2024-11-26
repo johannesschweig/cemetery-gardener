@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://drivo45asyw7l"]
 
 [ext_resource type="Texture2D" uid="uid://dw67j2ntcj23j" path="res://elements/mess/cellar.jpg" id="2_jeukx"]
-[ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://elements/mess/textBox.tscn" id="2_mssm8"]
+[ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://elements/gui/text_box.tscn" id="2_mssm8"]
 [ext_resource type="Script" path="res://elements/mess/submap.gd" id="4_i4yjw"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="5_v48wd"]
 [ext_resource type="PackedScene" uid="uid://ruxyd072mt4a" path="res://elements/gui/gui.tscn" id="6_gsfis"]

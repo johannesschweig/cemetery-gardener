@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0kbdbbjfpkuh"
-path="res://.godot/imported/flyer.png-dc1d341808336171e91fa9bf677f3370.ctex"
+path="res://.godot/imported/travel_flyer.png-9dd23c5e713be02ac6574433c81583ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://elements/mess/flyer.png"
-dest_files=["res://.godot/imported/flyer.png-dc1d341808336171e91fa9bf677f3370.ctex"]
+source_file="res://assets/items/travel_flyer.png"
+dest_files=["res://.godot/imported/travel_flyer.png-9dd23c5e713be02ac6574433c81583ed.ctex"]
 
 [params]
 

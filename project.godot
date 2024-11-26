@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://singleton/GameManager.gd"
+GameManager="*res://elements/mess/GameManager.gd"
+Utils="*res://components/utils.gd"
 
 [display]
 
@@ -36,7 +37,7 @@ version_control/autoload_on_startup=true
 
 [gui]
 
-theme/custom="res://assets/theme/theme-bw.tres"
+theme/custom="res://assets/theme/theme_bw.tres"
 
 [rendering]
 

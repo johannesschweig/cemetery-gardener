@@ -3,9 +3,7 @@ extends TileMapLayer
 var cursor = load("res://assets/cursor.png")
 var pointer = load("res://assets/pointer.png")
 
-# turn identifiers into human readable titles
-func get_title_from_identifier(identifier: String):
-	return identifier.replace("_", " ").capitalize()
+
 
 # on hover: change cursor and show label
 func _process(_delta):
@@ -13,7 +11,7 @@ func _process(_delta):
 	var tile_pos = local_to_map(mouse_pos_global)
 	var tile_data = get_cell_tile_data(tile_pos)
 	if tile_data is TileData:
-		var name = get_title_from_identifier(tile_data.get_custom_data("name"))
+		var name = Utils.get_title_from_identifier(tile_data.get_custom_data("name"))
 		# change cursor and show poi label if hovering
 		if !self.get_children() and name:
 			var position = map_to_local(tile_pos) - Vector2((len(name) * 17) / 2, 20)

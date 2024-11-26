@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://dimljgv4bf5wr"]
 
-[ext_resource type="Script" path="res://elements/mess/text_box.gd" id="1_rkurc"]
+[ext_resource type="Script" path="res://elements/gui/text_box.gd" id="1_rkurc"]
 [ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/theme/fonts/Montserrat-VariableFont_wght.ttf" id="2_66y4p"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="2_ll06c"]
-[ext_resource type="Texture2D" uid="uid://3btm0jr7my84" path="res://elements/mess/carKey.png" id="4_u5hv7"]
+[ext_resource type="Texture2D" uid="uid://c8twyhp1ryis" path="res://assets/items/hammer.png" id="4_x5xe6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egqm2"]
 content_margin_left = 12.0
@@ -101,7 +101,6 @@ fit_content = true
 
 [node name="found" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 
@@ -109,7 +108,7 @@ size_flags_horizontal = 0
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("4_u5hv7")
+texture = ExtResource("4_x5xe6")
 expand_mode = 3
 stretch_mode = 4
 

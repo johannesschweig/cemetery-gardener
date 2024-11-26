@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byc31uhtj6chc"
-path="res://.godot/imported/crematoriumKey.png-3406ecf6e67062fc3ff649dac48377c2.ctex"
+uid="uid://dfmtdtyqrrxo7"
+path="res://.godot/imported/newspaper_article.png-7b1cc78982879e8b1942d07d1cd703fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://elements/mess/crematoriumKey.png"
-dest_files=["res://.godot/imported/crematoriumKey.png-3406ecf6e67062fc3ff649dac48377c2.ctex"]
+source_file="res://assets/items/newspaper_article.png"
+dest_files=["res://.godot/imported/newspaper_article.png-7b1cc78982879e8b1942d07d1cd703fd.ctex"]
 
 [params]
 

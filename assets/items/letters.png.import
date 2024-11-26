@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfmtdtyqrrxo7"
-path="res://.godot/imported/newsArticle.png-1cda9953785916982baaa843ee96a8fc.ctex"
+uid="uid://2wa14hrotxj"
+path="res://.godot/imported/letters.png-d27bc1f76df9d162aa94e2cbdfe6d7e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://elements/mess/newsArticle.png"
-dest_files=["res://.godot/imported/newsArticle.png-1cda9953785916982baaa843ee96a8fc.ctex"]
+source_file="res://assets/items/letters.png"
+dest_files=["res://.godot/imported/letters.png-d27bc1f76df9d162aa94e2cbdfe6d7e5.ctex"]
 
 [params]
 

@@ -105,17 +105,11 @@ theme_override_colors/font_color = Color(0.41598, 0.41598, 0.41598, 1)
 theme_override_font_sizes/font_size = 24
 text = "Your inventory is empty."
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextBox" parent="CenterContainer" instance=ExtResource("6_bo5ge")]
+[node name="TextBox" parent="." instance=ExtResource("6_bo5ge")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
+offset_right = 0.0
+offset_bottom = 0.0
 
 [connection signal="pressed" from="Inventory/OpenInventory" to="Inventory" method="_on_open_inventory_pressed"]
 [connection signal="pressed" from="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer/close" to="Inventory" method="_on_close_pressed"]

@@ -1,4 +1,4 @@
-class_name TextBox extends PanelContainer
+class_name TextBox extends CenterContainer
 
 func show_text_box(title: String, text: String, found_identifier: String = ""):
 	%title.text = title

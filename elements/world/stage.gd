@@ -10,15 +10,10 @@ func _ready() -> void:
 		var instance = stages[0].instantiate()
 		add_child(instance)
 
-func clear_children():
-	for c in self.get_children():
-		self.remove_child(c)
-		c.queue_free()
-
 func next_stage():
 	current_stage += 1
 	var instance = stages[current_stage].instantiate()
-	clear_children()
+	Utils.clear_children(self)
 	add_child(instance)
 	if current_stage == 3:
 		get_node("/root/World/Gui").visible = true
@@ -29,5 +24,5 @@ func next_stage():
 func change_map(map: int):
 	current_map = map
 	var instance = maps[current_map].instantiate()
-	clear_children()
+	Utils.clear_children(self)
 	add_child(instance)

@@ -90,11 +90,12 @@ func _on_open_inventory_pressed() -> void:
 	%OpenInventory.visible = false
 	%Items.visible = true
 	if get_number_of_items():
+		%Items.update_items()
 		%ItemsGrid.visible = true
 		%Empty.visible = false
 	else:
 		%ItemsGrid.visible = false
-		%Emtpy.visible = true
+		%Empty.visible = true
 
 func _on_close_pressed() -> void:
 	%OpenInventory.visible = true

@@ -268,10 +268,6 @@ func get_submaps_area():
 	return submaps.filter(func(el): return el.area == current_area and (not "hidden" in el or el.hidden == false))
 	
 
-	
-func getNumberOfFoundItems():
-	return len(inventory.filter(func(item): return item.status != ITEM_STATUS.INITIAL))
-
 
 
 # show previously hidden poi on map

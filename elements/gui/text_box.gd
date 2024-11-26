@@ -6,7 +6,6 @@ func show_text_box(title: String, text: String, found_identifier: String = ""):
 	%found.visible = false
 	if found_identifier:
 		%foundItem.text = Utils.get_title_from_identifier(found_identifier) + " found"
-		print('foundid', found_identifier)
 		%foundIcon.texture = load("res://assets/items/" + found_identifier + ".png")
 		%found.visible = true
 	else:

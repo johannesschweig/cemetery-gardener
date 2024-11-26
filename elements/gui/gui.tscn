@@ -1,14 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://ruxyd072mt4a"]
+[gd_scene load_steps=11 format=3 uid="uid://ruxyd072mt4a"]
 
 [ext_resource type="Script" path="res://elements/gui/gui.gd" id="1_5hc12"]
 [ext_resource type="Script" path="res://elements/gui/inventory.gd" id="2_23ikt"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="2_x58lq"]
 [ext_resource type="Script" path="res://components/my_button.gd" id="3_qhfmc"]
 [ext_resource type="PackedScene" uid="uid://bl8m5i5wwrd4f" path="res://components/poi_label_panel.tscn" id="4_hitax"]
+[ext_resource type="Script" path="res://elements/gui/items.gd" id="5_ec2e7"]
 [ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://elements/gui/text_box.tscn" id="6_bo5ge"]
+[ext_resource type="Theme" uid="uid://riv3is6s0hbn" path="res://assets/theme/theme_bw.tres" id="6_whk4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bj1r"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_e8wf5"]
+base_font = ExtResource("2_x58lq")
+variation_opentype = {
+2003265652: 600
+}
 
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource("1_5hc12")
+
+[node name="PoiLabelPanel" parent="." instance=ExtResource("4_hitax")]
+unique_name_in_owner = true
+offset_right = 90.0
 
 [node name="Inventory" type="Control" parent="."]
 unique_name_in_owner = true
@@ -35,8 +50,60 @@ text = "Open Inventory (Empty)"
 autowrap_mode = 2
 script = ExtResource("3_qhfmc")
 
-[node name="PoiLabelPanel" parent="." instance=ExtResource("4_hitax")]
+[node name="Items" type="PanelContainer" parent="Inventory"]
 unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5bj1r")
+script = ExtResource("5_ec2e7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/Items"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Inventory/Items/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/Items/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_e8wf5")
+theme_override_font_sizes/font_size = 64
+text = "Inventory"
+
+[node name="spacer" type="Control" parent="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="close" type="Button" parent="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme = ExtResource("6_whk4i")
+text = "Close"
+script = ExtResource("3_qhfmc")
+
+[node name="ItemsGrid" type="GridContainer" parent="Inventory/Items/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 5
+
+[node name="Empty" type="Label" parent="Inventory/Items/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("6_whk4i")
+theme_override_colors/font_color = Color(0.41598, 0.41598, 0.41598, 1)
+theme_override_font_sizes/font_size = 24
+text = "Your inventory is empty."
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -50,4 +117,5 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="Inventory/OpenInventory" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Inventory/OpenInventory" to="Inventory" method="_on_open_inventory_pressed"]
+[connection signal="pressed" from="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer/close" to="Inventory" method="_on_close_pressed"]

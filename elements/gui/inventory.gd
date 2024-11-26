@@ -1,83 +1,101 @@
 extends Control
 
-enum ItemStatus {
-	INITIAL,
-	FOUND,
-	USED
-}
-
 var inventory = [
 	{
 		"identifier": "letters",
 		"description": "tfkkar cdgjbp",
-		"status": ItemStatus.INITIAL,
-		"icon": "characters",
+		"status": Utils.ItemStatus.INITIAL,
 		"unlock": true,
 		"solution": "thomas dehler",
 	},
 	{
 		"identifier": "notes_with_code",
 		"description": "024201 111232",
-		"status": ItemStatus.INITIAL,
-		"icon": "code",
+		"status": Utils.ItemStatus.INITIAL,
 		"unlock": true,
 		"solution": "thomas dehler",
 	},
 	{
 		"identifier": "car_key",
 		"description": "From an Opel",
-		"status": ItemStatus.INITIAL,
-		"icon": "carKey",
+		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "spare_key",
 		"description": "An old, heavy metal key with a key tag 'spare key crematorium'",
-		"status": ItemStatus.INITIAL,
-		"icon": "crematoriumKey",
+		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "hammer",
 		"description": "An large hammer that fits well in your hand.",
-		"status": ItemStatus.INITIAL,
-		"icon": "hammer",
+		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "travel_flyer",
 		"description": "Palm trees. Beach. Sea.",
-		"status": ItemStatus.INITIAL,
-		"icon": "flyer",
+		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "mobile_phone",
 		"description": "An old nokia mobile phone with an antenna.",
-		"status": ItemStatus.INITIAL,
-		"icon": "mobilePhone",
+		"status": Utils.ItemStatus.INITIAL,
 		"unlock": true,
 		"solution": "1999"
 	},
 	{
 		"identifier": "spade",
 		"description": "With a T-handle.",
-		"status": ItemStatus.INITIAL,
-		"icon": "spade",
+		"status": Utils.ItemStatus.INITIAL
 	},
 	{
 		"identifier": "newspaper_article",
 		"description": "From the 13th September 2000",
-		"status": ItemStatus.INITIAL,
-		"icon": "newsArticle"
+		"status": Utils.ItemStatus.INITIAL
 	},
 ]
+
+func get_number_of_items() -> int:
+	return len(inventory.filter(func(item): return item.status != Utils.ItemStatus.INITIAL))
 
 # whether the player has found an item yet
 func get_status(identifier: String):
 	return inventory.filter(func(el): return el.identifier == identifier)[0].status
 
-func set_status(identifier: String, status: ItemStatus):
-	var found_identifier = -1
-	for i in range(inventory.size()):
-		if inventory[i].identifier == identifier:
-			found_identifier = i
-			break
-	inventory[found_identifier].status = status
-	#emit_signal("item_found") # TODO update inventory label
+func set_status(identifier, status: Utils.ItemStatus):
+	var items
+	if typeof(identifier) == TYPE_ARRAY:
+		items = identifier
+	else:
+		items = [identifier]
+		
+	# loop through items
+	for item in items:
+		var found_identifier = -1
+		for i in range(inventory.size()):
+			if inventory[i].identifier == item:
+				found_identifier = i
+				break
+		inventory[found_identifier].status = status
+	update_label_text()
+
+func update_label_text():
+	var foundItems = get_number_of_items()
+	if foundItems == 0:
+		%OpenInventory.text = "Open Inventory (Empty)"
+	else:
+		%OpenInventory.text = "Open Inventory (%s)" % foundItems
+
+
+func _on_open_inventory_pressed() -> void:
+	%OpenInventory.visible = false
+	%Items.visible = true
+	if get_number_of_items():
+		%ItemsGrid.visible = true
+		%Empty.visible = false
+	else:
+		%ItemsGrid.visible = false
+		%Emtpy.visible = true
+
+func _on_close_pressed() -> void:
+	%OpenInventory.visible = true
+	%Items.visible = false

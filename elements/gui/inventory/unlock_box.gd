@@ -1,12 +1,12 @@
-class_name UnlockBox extends PanelContainer
+extends CenterContainer
 
 var solution
 var identifier
 
-func setUnlockBox(id: String, code: String):
+func show_unlock_box(id: String, code: String):
 	identifier = id
 	solution = code
-	var title = GameManager.getTitleFromIdentifier(identifier)
+	var title = Utils.get_title_from_identifier(identifier)
 	var placeholder = ''
 	%title.text = title
 	%description.text = "Enter the code to unlock \"" + title + "\":"
@@ -25,7 +25,7 @@ func _on_unlock_pressed() -> void:
 	var clue = %input.text
 	if clue == solution:
 		%feedback.text = "This code is right."
-		GameManager.click_button(identifier + "_unlocked")
+		get_node("/root/World/Gui").click_poi_or_item(identifier + "_unlocked")
 	else:
 		if len(clue) < len(solution):
 			%feedback.text = "This code is wrong. " + str(len(solution)) + " characters required."

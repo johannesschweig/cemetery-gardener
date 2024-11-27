@@ -1,9 +1,10 @@
 extends PanelContainer
 
-@export var items : Array = []
+var items : Array = []
+@export var inventory_item : PackedScene
 
 func update_items():
-	var inventory_item = preload("res://elements/gui/inventory_item.tscn")
+	#var inventory_item = preload("res://elements/gui/inventory_item.tscn")
 	var items = get_node("/root/World/Gui/Inventory").inventory.filter(func(item): return item.status != Utils.ItemStatus.INITIAL)
 	Utils.clear_children(%ItemsGrid)
 	for item in items:

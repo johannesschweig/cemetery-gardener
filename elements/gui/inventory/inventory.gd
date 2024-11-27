@@ -27,7 +27,7 @@ var inventory = [
 	},
 	{
 		"identifier": "hammer",
-		"description": "An large hammer that fits well in your hand.",
+		"description": "A large hammer that fits well in your hand.",
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
@@ -77,6 +77,9 @@ func set_status(identifier, status: Utils.ItemStatus):
 				break
 		inventory[found_identifier].status = status
 	update_label_text()
+
+func get_description(identifier: String):
+	return inventory.filter(func(el): return el.identifier == identifier)[0].description
 
 func update_label_text():
 	var foundItems = get_number_of_items()

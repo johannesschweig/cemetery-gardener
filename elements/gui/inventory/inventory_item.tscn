@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ca8m6bwg1wqqh"]
 
-[ext_resource type="Script" path="res://elements/gui/inventory_item.gd" id="1_ba500"]
+[ext_resource type="Script" path="res://elements/gui/inventory/inventory_item.gd" id="1_ba500"]
 [ext_resource type="StyleBox" uid="uid://cr5qct1pivvgq" path="res://elements/inventory-item.tres" id="1_q3pgg"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="2_0fnka"]
 [ext_resource type="Texture2D" uid="uid://3btm0jr7my84" path="res://assets/items/car_key.png" id="2_en7by"]

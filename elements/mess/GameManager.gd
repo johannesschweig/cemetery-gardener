@@ -270,18 +270,6 @@ func get_submaps_area():
 
 
 
-# show previously hidden poi on map
-func show_poi(identifier):
-	for el in pois:
-		if el.identifier == identifier:
-			el.hidden = false
-			break
-
-
-# turn identifiers into human readable titles
-func getTitleFromIdentifier(identifier: String):
-	return identifier.replace("_", " ").capitalize()
-
 # a button of a poi or inventory item is clicked
 func click_button(identifier: String):
 	var path

@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://ruxyd072mt4a"]
+[gd_scene load_steps=13 format=3 uid="uid://ruxyd072mt4a"]
 
 [ext_resource type="Script" path="res://elements/gui/gui.gd" id="1_5hc12"]
-[ext_resource type="Script" path="res://elements/gui/inventory.gd" id="2_23ikt"]
+[ext_resource type="Script" path="res://elements/gui/inventory/inventory.gd" id="2_23ikt"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="2_x58lq"]
 [ext_resource type="Script" path="res://components/my_button.gd" id="3_qhfmc"]
 [ext_resource type="PackedScene" uid="uid://bl8m5i5wwrd4f" path="res://components/poi_label_panel.tscn" id="4_hitax"]
-[ext_resource type="Script" path="res://elements/gui/items.gd" id="5_ec2e7"]
+[ext_resource type="Script" path="res://elements/gui/inventory/items.gd" id="5_ec2e7"]
 [ext_resource type="PackedScene" uid="uid://dimljgv4bf5wr" path="res://elements/gui/text_box.tscn" id="6_bo5ge"]
 [ext_resource type="Theme" uid="uid://riv3is6s0hbn" path="res://assets/theme/theme_bw.tres" id="6_whk4i"]
+[ext_resource type="PackedScene" uid="uid://ca8m6bwg1wqqh" path="res://elements/gui/inventory/inventory_item.tscn" id="7_5qak4"]
+[ext_resource type="PackedScene" uid="uid://dg53lhvlxxxp6" path="res://elements/gui/inventory/unlock_box.tscn" id="9_co8oa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bj1r"]
 bg_color = Color(1, 1, 1, 1)
@@ -60,6 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5bj1r")
 script = ExtResource("5_ec2e7")
+inventory_item = ExtResource("7_5qak4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Inventory/Items"]
 layout_mode = 2
@@ -105,8 +108,16 @@ theme_override_colors/font_color = Color(0.41598, 0.41598, 0.41598, 1)
 theme_override_font_sizes/font_size = 24
 text = "Your inventory is empty."
 
+[node name="UnlockBox" parent="." instance=ExtResource("9_co8oa")]
+unique_name_in_owner = true
+z_index = 2
+custom_minimum_size = Vector2(800, 0)
+offset_right = 0.0
+offset_bottom = 0.0
+
 [node name="TextBox" parent="." instance=ExtResource("6_bo5ge")]
 unique_name_in_owner = true
+z_index = 4
 custom_minimum_size = Vector2(800, 0)
 offset_right = 0.0
 offset_bottom = 0.0

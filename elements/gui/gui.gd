@@ -1,22 +1,20 @@
 extends CanvasLayer
 
-#func _on_button_pressed() -> void: # TODO no change in scene pls
-	#get_tree().change_scene_to_file("res://elements/mess/inventory.tscn")
-
-var inventory
-var poi_label_panel
-var text_box
+@onready var inventory: Control = %Inventory
+@onready var text_box: TextBox = %TextBox
+@onready var poi_label_panel: PanelContainer = %PoiLabelPanel
+@onready var unlock_box: CenterContainer = %UnlockBox
+@onready var open_inventory: MyButton = %OpenInventory
+@onready var items: PanelContainer = %Items
 
 var discovered_locations = []
 
 func _ready() -> void:
-	inventory = %Inventory
-	poi_label_panel = %PoiLabelPanel
 	poi_label_panel.visible = false
-	text_box = %TextBox
 	text_box.visible = false
-	%OpenInventory.visible = true
-	%Items.visible = false
+	open_inventory.visible = true
+	items.visible = false
+	unlock_box.visible = false
 
 func show_poi_label_panel(name: String, position: Vector2):
 	poi_label_panel.visible = true
@@ -141,13 +139,13 @@ func process_interaction(name: String):
 			else:
 				return "Printed on the box are a caliber designation and some Cyrillic letters that you don't understand. You open the box and search through its contents. You find many old passports with different names, but always the same photo of a young man in his thirties. Next to them you find several military medals and badges. One of them looks familiar to you. It consists of a shield with a red star with a hammer and sickle and the letters \"КГБ СССР\"."
 		"car_key":
-			return inventory.filter(func(el): return el.identifier == "car_key")[0].description
+			return inventory.get_description("car_key")
 		"notes_with_code":
-			return inventory.filter(func(el): return el.identifier == "notes_with_code")[0].description
+			return inventory.get_description("notes_with_code")
 		"spare_key":
-			return inventory.filter(func(el): return el.identifier == "spare_key")[0].description
+			return inventory.get_description("spare_key")
 		"hammer":
-			return inventory.filter(func(el): return el.identifier == "hammer")[0].description
+			return inventory.get_description("hammer")
 		"letters":
 			return "🕆tfkkar cdgjbp. You noted down these strange letters from the back of a photo in the kitchen."
 		"notes_with_code_unlocked":
@@ -175,7 +173,7 @@ func process_interaction(name: String):
 				"text": "You enter the PIN and the cell phone unlocks. Under Photos you find the yellowed school picture of a little girl and another photo of the young woman from the house. The last picture is from a funeral. On a wreath it says “Inna 1979-1999”. Under “Notes” you find a note: “Spare Crematorium flower vases”. You saw some flower vases at the house. Maybe you should check them out again."
 			}
 		"spade":
-			return inventory.filter(func(el): return el.identifier == "spade")[0].description
+			return inventory.get_description("spade")
 		"newspaper_article":
 			return "The article deals with the bomb attacks on two Moscow apartment buildings on September 13, 1999. A British newspaper reportedly had unpublished evidence that the Russian secret service was involved in the attacks. According to official Russian investigations, the perpetrators were Chechen separatists. The large picture above shows one of the destroyed high-rise buildings shortly after the attack. In the picture below, the then Russian Prime Minister declares war on the Chechen terrorists."
 		"flower_vases":
@@ -189,8 +187,8 @@ func process_interaction(name: String):
 		_:
 			return "No text found."
 
-# clicked poi
-func click_poi(name: String):
+# clicked poi or item
+func click_poi_or_item(name: String):
 	var feedback = process_interaction(name)
 	var name_formatted = Utils.get_title_from_identifier(name)
 	if feedback is Dictionary:
@@ -201,7 +199,12 @@ func click_poi(name: String):
 		if feedback.has("discovered"):
 			discovered_locations += [feedback.discovered]
 			print('discovered ', feedback.discovered) # TODO
-
-		text_box.show_text_box(name_formatted, feedback.text, feedback.found)
+		if feedback.has("found"):
+			text_box.show_text_box(name_formatted, feedback.text, feedback.found)
+		else:
+			text_box.show_text_box(name_formatted, feedback.text)
 	else:
 		text_box.show_text_box(name_formatted, feedback)
+
+func show_unlock_box(identifier, solution):
+	unlock_box.show_unlock_box(identifier, solution)

@@ -13,7 +13,7 @@ func set_item(i) -> void:
 	self.visible = true
 
 func _on_info_pressed() -> void:
-	pass#GameManager.click_button(item.identifier)
+	get_node("/root/World/Gui").click_poi_or_item(item.identifier)
 
 func _on_unlock_pressed() -> void:
-	pass#GameManager.click_unlock(item.identifier, item.solution)
+	get_node("/root/World/Gui").show_unlock_box(item.identifier, item.solution)

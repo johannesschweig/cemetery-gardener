@@ -32,4 +32,4 @@ func _input(event):
 			var name = tile_data.get_custom_data("name")
 			var hidden = tile_data.get_custom_data("hidden")
 			if name and !hidden:
-				get_node('/root/World/Gui').click_poi(name)
+				get_node('/root/World/Gui').click_poi_or_item(name)

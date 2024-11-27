@@ -1,5 +1,11 @@
 extends Control
 
+@onready var items_grid: GridContainer = %ItemsGrid
+@onready var empty: Label = %Empty
+@onready var items: PanelContainer = %Items
+@onready var inventory_panel: Control = %InventoryPanel
+@onready var open_inventory: MyButton = %OpenInventory
+
 var inventory = [
 	{
 		"identifier": "letters",
@@ -54,8 +60,11 @@ var inventory = [
 	},
 ]
 
+func get_items():
+	return inventory.filter(func(item): return item.status != Utils.ItemStatus.INITIAL)
+
 func get_number_of_items() -> int:
-	return len(inventory.filter(func(item): return item.status != Utils.ItemStatus.INITIAL))
+	return len(get_items())
 
 # whether the player has found an item yet
 func get_status(identifier: String):
@@ -84,22 +93,22 @@ func get_description(identifier: String):
 func update_label_text():
 	var foundItems = get_number_of_items()
 	if foundItems == 0:
-		%OpenInventory.text = "Open Inventory (Empty)"
+		open_inventory.text = "Open Inventory (Empty)"
 	else:
-		%OpenInventory.text = "Open Inventory (%s)" % foundItems
+		open_inventory.text = "Open Inventory (%s)" % foundItems
 
 
 func _on_open_inventory_pressed() -> void:
-	%OpenInventory.visible = false
-	%Items.visible = true
+	open_inventory.visible = false
+	inventory_panel.visible = true
 	if get_number_of_items():
-		%Items.update_items()
-		%ItemsGrid.visible = true
-		%Empty.visible = false
+		items.update_items()
+		items_grid.visible = true
+		empty.visible = false
 	else:
-		%ItemsGrid.visible = false
-		%Empty.visible = true
+		items_grid.visible = false
+		empty.visible = true
 
 func _on_close_pressed() -> void:
-	%OpenInventory.visible = true
-	%Items.visible = false
+	open_inventory.visible = true
+	inventory_panel.visible = false

@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca8m6bwg1wqqh"]
+[gd_scene load_steps=9 format=3 uid="uid://ca8m6bwg1wqqh"]
 
 [ext_resource type="Script" path="res://elements/gui/inventory/inventory_item.gd" id="1_ba500"]
 [ext_resource type="StyleBox" uid="uid://cr5qct1pivvgq" path="res://elements/inventory-item.tres" id="1_q3pgg"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="2_0fnka"]
 [ext_resource type="Texture2D" uid="uid://3btm0jr7my84" path="res://assets/items/car_key.png" id="2_en7by"]
 [ext_resource type="FontFile" uid="uid://gd31212bsk4m" path="res://assets/theme/fonts/Montserrat-VariableFont_wght.ttf" id="3_axchn"]
-[ext_resource type="StyleBox" uid="uid://cfhvhlgsfrnl4" path="res://elements/mess/button-hover.tres" id="5_gb827"]
-[ext_resource type="StyleBox" uid="uid://bokxtfpcpnfwc" path="res://elements/mess/button-normal.tres" id="6_hgpme"]
+[ext_resource type="Theme" uid="uid://riv3is6s0hbn" path="res://assets/theme/theme_bw.tres" id="6_7ajg3"]
 
 [sub_resource type="FontVariation" id="FontVariation_jh6b8"]
 base_font = ExtResource("2_0fnka")
@@ -68,10 +67,7 @@ layout_mode = 2
 [node name="info" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_0fnka")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/hover = ExtResource("5_gb827")
-theme_override_styles/normal = ExtResource("6_hgpme")
+theme = ExtResource("6_7ajg3")
 text = "Info"
 
 [node name="unlock" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
@@ -79,10 +75,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_0fnka")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/hover = ExtResource("5_gb827")
-theme_override_styles/normal = ExtResource("6_hgpme")
+theme = ExtResource("6_7ajg3")
 text = "Unlock"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/info" to="." method="_on_info_pressed"]

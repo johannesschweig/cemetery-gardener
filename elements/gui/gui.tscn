@@ -23,23 +23,22 @@ variation_opentype = {
 [node name="Gui" type="CanvasLayer"]
 script = ExtResource("1_5hc12")
 
+[node name="BackMap" type="Button" parent="."]
+unique_name_in_owner = true
+offset_right = 188.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("2_x58lq")
+theme_override_font_sizes/font_size = 36
+text = "Back	"
+autowrap_mode = 2
+script = ExtResource("3_qhfmc")
+
 [node name="PoiLabelPanel" parent="." instance=ExtResource("4_hitax")]
 unique_name_in_owner = true
 offset_right = 90.0
 
-[node name="Inventory" type="Control" parent="."]
+[node name="OpenInventory" type="Button" parent="."]
 unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_23ikt")
-
-[node name="OpenInventory" type="Button" parent="Inventory"]
-unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -52,7 +51,17 @@ text = "Open Inventory (Empty)"
 autowrap_mode = 2
 script = ExtResource("3_qhfmc")
 
-[node name="Items" type="PanelContainer" parent="Inventory"]
+[node name="InventoryPanel" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_23ikt")
+
+[node name="Items" type="PanelContainer" parent="InventoryPanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -64,43 +73,43 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5bj1r")
 script = ExtResource("5_ec2e7")
 inventory_item = ExtResource("7_5qak4")
 
-[node name="MarginContainer" type="MarginContainer" parent="Inventory/Items"]
+[node name="MarginContainer" type="MarginContainer" parent="InventoryPanel/Items"]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Inventory/Items/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryPanel/Items/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Inventory/Items/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryPanel/Items/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="title" type="Label" parent="InventoryPanel/Items/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_e8wf5")
 theme_override_font_sizes/font_size = 64
 text = "Inventory"
 
-[node name="spacer" type="Control" parent="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="spacer" type="Control" parent="InventoryPanel/Items/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="close" type="Button" parent="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="close" type="Button" parent="InventoryPanel/Items/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme = ExtResource("6_whk4i")
 text = "Close"
 script = ExtResource("3_qhfmc")
 
-[node name="ItemsGrid" type="GridContainer" parent="Inventory/Items/MarginContainer/VBoxContainer"]
+[node name="ItemsGrid" type="GridContainer" parent="InventoryPanel/Items/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 5
 
-[node name="Empty" type="Label" parent="Inventory/Items/MarginContainer/VBoxContainer"]
+[node name="Empty" type="Label" parent="InventoryPanel/Items/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("6_whk4i")
@@ -122,5 +131,6 @@ custom_minimum_size = Vector2(800, 0)
 offset_right = 0.0
 offset_bottom = 0.0
 
-[connection signal="pressed" from="Inventory/OpenInventory" to="Inventory" method="_on_open_inventory_pressed"]
-[connection signal="pressed" from="Inventory/Items/MarginContainer/VBoxContainer/HBoxContainer/close" to="Inventory" method="_on_close_pressed"]
+[connection signal="pressed" from="BackMap" to="." method="_on_back_map_pressed"]
+[connection signal="pressed" from="OpenInventory" to="InventoryPanel" method="_on_open_inventory_pressed"]
+[connection signal="pressed" from="InventoryPanel/Items/MarginContainer/VBoxContainer/HBoxContainer/close" to="InventoryPanel" method="_on_close_pressed"]

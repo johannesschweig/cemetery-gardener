@@ -3,7 +3,16 @@ class_name MyTileMapLayer extends TileMapLayer
 var cursor = load("res://assets/cursor.png")
 var pointer = load("res://assets/pointer.png")
 var gui
+var stage
 var showing_poi_panel = false
+
+
+func _ready() -> void:
+	gui = get_node('/root/World/Gui')
+	stage = get_node('/root/World/Stage')
+	gui.discovered_location.connect(update_switched_locations)
+	gui.switched_location.connect(update_switched_locations)
+	update_switched_locations()
 
 func update_switched_locations():
 	if gui.switched_locations:
@@ -18,11 +27,6 @@ func update_switched_locations():
 				var new_coords = find_coords_in_atlas(new_location)
 				self.set_cell(original_coords, original_id, new_coords)
 
-func _ready() -> void:
-	gui = get_node('/root/World/Gui')
-	gui.discovered_location.connect(update_switched_locations)
-	gui.switched_location.connect(update_switched_locations)
-	update_switched_locations()
 
 func find_coords_in_atlas(name: String):
 	var tileset = self.tile_set  # Get the TileSet from the TileMap
@@ -75,31 +79,32 @@ func get_tile_props():
 
 # on hover: change cursor and show label
 func _process(_delta):
-	var tile_props = get_tile_props()
-	var tile_pos = tile_props.tile_pos
-	var name = tile_props.name
-	var undiscovered = tile_props.undiscovered
-	if name:
-		if !self.get_children() and undiscovered == false:
-			var name_formatted = Utils.get_title_from_identifier(name)
-			# change cursor and show poi label if hovering
-			var position = map_to_local(tile_pos) - Vector2((len(name) * 17) / 2, 20)
-			# change cursor
-			Input.set_custom_mouse_cursor(pointer)
-			gui.show_poi_label_panel(name_formatted, position)
-			showing_poi_panel = true
-		else:
+	if stage.is_visible_in_tree():
+		var tile_props = get_tile_props()
+		var tile_pos = tile_props.tile_pos
+		var name = tile_props.name
+		var undiscovered = tile_props.undiscovered
+		if name:
+			if !self.get_children() and undiscovered == false:
+				var name_formatted = Utils.get_title_from_identifier(name)
+				# change cursor and show poi label if hovering
+				var position = map_to_local(tile_pos) - Vector2((len(name) * 17) / 2, 20)
+				# change cursor
+				Input.set_custom_mouse_cursor(pointer)
+				gui.show_poi_label_panel(name_formatted, position)
+				showing_poi_panel = true
+			else:
+				Input.set_custom_mouse_cursor(cursor)
+				gui.hide_poi_label_panel()
+				showing_poi_panel = false
+		elif showing_poi_panel:
 			Input.set_custom_mouse_cursor(cursor)
 			gui.hide_poi_label_panel()
 			showing_poi_panel = false
-	elif showing_poi_panel:
-		Input.set_custom_mouse_cursor(cursor)
-		gui.hide_poi_label_panel()
-		showing_poi_panel = false
 
 # on click: show text box or perform other action
 func _input(event):
-	if event is InputEventMouseButton and event.pressed:
+	if stage.is_visible_in_tree() and event is InputEventMouseButton and event.pressed:
 		var tile_props = get_tile_props()
 		var name = tile_props.name
 		var undiscovered = tile_props.undiscovered

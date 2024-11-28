@@ -5,6 +5,7 @@ extends Control
 @onready var items: PanelContainer = %Items
 @onready var inventory_panel: Control = %InventoryPanel
 @onready var open_inventory: MyButton = %OpenInventory
+var stage
 
 var inventory = [
 	{
@@ -60,6 +61,9 @@ var inventory = [
 	},
 ]
 
+func _ready() -> void:
+	stage = get_node("/root/World/Stage")
+
 func get_items():
 	return inventory.filter(func(item): return item.status != Utils.ItemStatus.INITIAL)
 
@@ -99,16 +103,18 @@ func update_label_text():
 
 
 func _on_open_inventory_pressed() -> void:
-	open_inventory.visible = false
-	inventory_panel.visible = true
+	open_inventory.hide()
+	inventory_panel.show()
+	stage.hide()
 	if get_number_of_items():
 		items.update_items()
-		items_grid.visible = true
-		empty.visible = false
+		items_grid.show()
+		empty.hide()
 	else:
-		items_grid.visible = false
-		empty.visible = true
+		items_grid.hide()
+		empty.show()
 
 func _on_close_pressed() -> void:
-	open_inventory.visible = true
-	inventory_panel.visible = false
+	open_inventory.show()
+	inventory_panel.hide()
+	stage.show()

@@ -1,16 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://cylpvkrrnc7mw"]
+[gd_scene load_steps=3 format=4 uid="uid://cylpvkrrnc7mw"]
 
 [ext_resource type="Script" path="res://elements/maps/my_tilemap_layer.gd" id="3_mm224"]
-[ext_resource type="PackedScene" uid="uid://bsychtxjlaenw" path="res://elements/mess/chestButton.tscn" id="3_nyf6j"]
 [ext_resource type="TileSet" uid="uid://dntamng3rdtv6" path="res://assets/tileset.tres" id="5_hampe"]
 
 [node name="yard" type="Node2D"]
-
-[node name="chestButton" parent="." instance=ExtResource("3_nyf6j")]
-offset_left = 1468.0
-offset_top = 638.0
-offset_right = 1551.0
-offset_bottom = 698.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 unique_name_in_owner = true

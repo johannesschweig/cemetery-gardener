@@ -30,6 +30,9 @@ func _input(event):
 		var tile_data = get_cell_tile_data(tile_pos)
 		if tile_data is TileData:
 			var name = tile_data.get_custom_data("name")
-			var hidden = tile_data.get_custom_data("hidden")
-			if name and !hidden:
+			var undiscovered = tile_data.get_custom_data("undiscovered")
+			# area was discovered
+			if undiscovered and name in get_node('/root/World/Gui').discovered_locations:
+				undiscovered = false
+			if name and !undiscovered:
 				get_node('/root/World/Gui').click_poi_or_item(name)

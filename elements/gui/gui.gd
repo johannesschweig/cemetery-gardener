@@ -214,7 +214,6 @@ func click_poi_or_item(name: String):
 			inventory_panel.set_status(feedback.used, Utils.ItemStatus.USED)
 		if feedback.has("discovered"):
 			discovered_locations += [feedback.discovered]
-			print('discovered ', feedback.discovered) # TODO
 		if feedback.has("found"):
 			text_box.show_text_box(name_formatted, feedback.text, feedback.found)
 		else:

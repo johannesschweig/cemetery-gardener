@@ -22,7 +22,6 @@ func next_stage():
 
 func change_map(map: String):
 	current_map = map
-	print(map)
 	var map_scene = load("res://elements/maps/" + map + ".tscn")
 	var instance = map_scene.instantiate()
 	Utils.clear_children(self)

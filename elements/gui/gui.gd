@@ -9,6 +9,10 @@ extends CanvasLayer
 @onready var back_map: MyButton = %BackMap
 
 var discovered_locations = []
+var switched_locations = []
+
+signal discovered_location
+signal switched_location
 
 func _ready() -> void:
 	poi_label_panel.hide()
@@ -98,15 +102,19 @@ func process_interaction(name: String):
 			return "To the left and right there are neat rows of wooden chairs with red cushions. You walk down the rows but don't find anything."
 		"stand":
 			return "The wooden stand is at the end of the room, along with a few large candle holders. You don't find anything interesting."
-		"gate":
+		"gate_closed":
 			if inventory_panel.get_status("spare_key") == Utils.ItemStatus.INITIAL:
 				return "The gate is about 5 paces wide and made of dark wood with metal fittings. It looks very solid. In the middle you can see a keyhole. You shake it, but it doesn't open."
 			else:
-				#emit_signal("crematorium_key_found") # TODO change icon for gate
 				return {
-					"found": "spare_key",
+					"used": "spare_key",
+					"switch": ["gate_closed", "gate_open"],
 					"text": "The heavy metal key fits perfectly into the gate lock. You turn the key in the lock and open the gate."
 				}
+		"gate_open":
+			return {
+				"map": "crematorium"
+			}
 		"cart":
 			if inventory_panel.get_status("car_key") == Utils.ItemStatus.INITIAL:
 				return {
@@ -118,12 +126,14 @@ func process_interaction(name: String):
 				return "The metal carts are made of stainless steel tubes and are 1 meter high with 4 small wheels each."
 		"mud":
 			return "You examine the mud on the ground more closely and can see a footprint. You estimate the shoe size to be at least 43."
-		"gravestone":
+		"thomas_dehler":
 			if inventory_panel.get_status("spade") == Utils.ItemStatus.INITIAL:
 				return "A little way away from the other graves you find the dark gravestone of Thomas Dehler with the dates of his death and a dedication \"And forgive us our sins\". A few smaller sandstone slabs are leaning against the back of the gravestone. You put them to one side and notice that the ground is trodden down and bare of vegetation."
 			else:
-				#emit_signal("chest_found") # TODO
-				return "Behind the gravestone of Thomas Dehler the ground is trodden down and bare of vegetation. You take the spade and ram it into the ground. After some shoveling, you come across something hard and hollow. It is a wooden chest. You carefully uncover it and heave it next to the grave."
+				return {
+					"switch": ["chest_placeholder", "chest"],
+					"text": "Behind the gravestone of Thomas Dehler the ground is trodden down and bare of vegetation. You take the spade and ram it into the ground. After some shoveling, you come across something hard and hollow. It is a wooden chest. You carefully uncover it and heave it next to the grave."
+				}
 		"chest":
 			return {
 				"found": "newspaper_article",
@@ -152,13 +162,13 @@ func process_interaction(name: String):
 		"notes_with_code_unlocked":
 			return {
 				"used": ["letters", "notes_with_code"],
-				"discovered": "gravestone",
+				"discovered": "thomas_dehler",
 				"text": "\"Thomas Dehler\" sounds sensible. But where could you find him?"
 			}
 		"letters_unlocked":
 			return {
 				"used": ["letters", "notes_with_code"],
-				"discovered": "gravestone",
+				"discovered": "thomas_dehler",
 				"text": "\"Thomas Dehler\" sounds sensible. But where could you find him?"
 			}
 		"travel_flyer":
@@ -197,6 +207,10 @@ func process_interaction(name: String):
 			return {
 				"map": "crematorium"
 			}
+		"opel":
+			return {
+				"stage": "end"
+			}
 		_:
 			return "No text found."
 
@@ -205,6 +219,9 @@ func click_poi_or_item(name: String):
 	var feedback = process_interaction(name)
 	var name_formatted = Utils.get_title_from_identifier(name)
 	if feedback is Dictionary:
+		if feedback.has("stage"):
+			get_node("/root/World/Stage").next_stage()
+			return
 		if feedback.has("map"):
 			get_node("/root/World/Stage").change_map(feedback.map)
 			return
@@ -214,6 +231,10 @@ func click_poi_or_item(name: String):
 			inventory_panel.set_status(feedback.used, Utils.ItemStatus.USED)
 		if feedback.has("discovered"):
 			discovered_locations += [feedback.discovered]
+			discovered_location.emit()
+		if feedback.has("switch"):
+			switched_locations += [feedback.switch]
+			switched_location.emit()
 		if feedback.has("found"):
 			text_box.show_text_box(name_formatted, feedback.text, feedback.found)
 		else:

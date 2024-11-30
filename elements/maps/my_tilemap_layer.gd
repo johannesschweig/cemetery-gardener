@@ -19,48 +19,15 @@ func update_switched_locations():
 		for pair in gui.switched_locations:
 			var original_location = pair[0]
 			var new_location = pair[1]
-			var original_props = get_coords_and_tile_pos_in_tile_map(original_location)
+			var original_props = Utils.get_coords_and_tile_pos_in_tile_map(original_location, self)
 			# if tile not part of current tile map
 			if original_props:
 				var original_coords = original_props.coords
 				var original_id = original_props.id
-				var new_coords = find_coords_in_atlas(new_location)
+				var new_coords = Utils.find_coords_in_atlas(new_location, self)
 				self.set_cell(original_coords, original_id, new_coords)
 
 
-func find_coords_in_atlas(name: String):
-	var tileset = self.tile_set  # Get the TileSet from the TileMap
-	
-	# Iterate over all the tiles in the TileSet
-	var tileset_source = tileset.get_source(1)
-	for i in range(tileset_source.get_tiles_count()):
-		var data : TileData = tileset_source.get_tile_data(tileset_source.get_tile_id(i),0)
-		var cell_name = data.get_custom_data('name')
-		var coords = tileset_source.get_tile_id(i)
-		if cell_name:
-			if cell_name == name:
-				return coords
-
-func get_coords_and_tile_pos_in_tile_map(name: String):
-	# Get the used area of the TileMap (the rectangle that contains all the tiles in use)
-	var used_rect = get_used_rect()
-	
-	# Iterate over the area, checking each tile position
-	for x in range(used_rect.position.x, used_rect.position.x + used_rect.size.x):
-		for y in range(used_rect.position.y, used_rect.position.y + used_rect.size.y):
-			var tile_pos = Vector2(x, y)
-			var tile_id = get_cell_source_id(tile_pos)  # Get the ID of the tile at this position
-			# You can also get custom data if needed
-			var tile_data = get_cell_tile_data(tile_pos)
-			# Example: print information about each tile
-			if tile_id != -1:  # Ensure the tile exists (ID of -1 means no tile)
-				if tile_data:
-					var cell_name = tile_data.get_custom_data("name")  # Get custom data (if set)
-					if cell_name == name:
-						return {
-							'id': tile_id,
-							'coords': tile_pos
-						}
 
 func get_tile_props():
 	var mouse_pos_global = get_viewport().get_mouse_position()

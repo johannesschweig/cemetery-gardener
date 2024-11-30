@@ -13,6 +13,8 @@ func _ready() -> void:
 	gui.discovered_location.connect(update_switched_locations)
 	gui.switched_location.connect(update_switched_locations)
 	update_switched_locations()
+	for el in Utils.get_all_tiles(self):
+		print(el)
 
 func update_switched_locations():
 	if gui.switched_locations:
@@ -27,8 +29,7 @@ func update_switched_locations():
 				var new_coords = Utils.find_coords_in_atlas(new_location, self)
 				self.set_cell(original_coords, original_id, new_coords)
 
-
-
+# returns tile position, name, discovered state fo the currently hovered tile
 func get_tile_props():
 	var mouse_pos_global = get_viewport().get_mouse_position()
 	var tile_pos = local_to_map(mouse_pos_global)

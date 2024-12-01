@@ -55,7 +55,6 @@ func get_tiles_from_tileset(tile_map_layer: TileMapLayer):
 		# Iterate over all tiles in tileset
 	var available_cells = []
 	var tileset : TileSet = tile_map_layer.tile_set  # Get the TileSet from the TileMap
-	var tile_size : Vector2i = tileset.get_tile_size()
 	# Iterate over all the tiles in the TileSet
 	var tileset_source : TileSetSource = tileset.get_source(1)
 	for i in range(tileset_source.get_tiles_count()):
@@ -65,7 +64,6 @@ func get_tiles_from_tileset(tile_map_layer: TileMapLayer):
 		if tile_name:
 			available_cells += [{
 				"name": tile_name,
-				"atlas_coords": coords,
 				"size": tileset_source.get_tile_size_in_atlas(coords),
 				"texture_origin": data.get_texture_origin(),
 			}]
@@ -92,15 +90,30 @@ func get_all_tiles(tile_map_layer: TileMapLayer):
 	
 	# add info to used cells
 	var enriched_cells = []
+	var tileset : TileSet = tile_map_layer.tile_set 
+	var tile_size : Vector2i = tileset.get_tile_size() # (64, 64)
 	for used_cell in used_cells:
 		for available_cell in available_cells:
 			if used_cell.name == available_cell.name:
+				# compute corrected start and end
+				var start : Vector2 = Vector2(used_cell.origin) - (0.5 * (Vector2(available_cell.size - Vector2i(1, 1)))) + (Vector2(available_cell.texture_origin) / Vector2(tile_size))
+				var end : Vector2 = Vector2(used_cell.origin) + (0.5 * (Vector2(available_cell.size - Vector2i(1, 1)))) + (Vector2(available_cell.texture_origin) / Vector2(tile_size))
+				
 				enriched_cells += [{
 					"name": used_cell.name,
 					"origin": used_cell.origin,
 					"undiscovered": used_cell.undiscovered,
-					"atlas_coords": available_cell.atlas_coords,
 					"size": available_cell.size,
 					"texture_origin": available_cell.texture_origin,
+					"start": start,
+					"end": end,
 				}]
 	return enriched_cells
+
+func is_origin_inside(origin: Vector2, start: Vector2, end: Vector2) -> bool:
+	# Ensure the rectangle is correctly oriented (start is top-left, end is bottom-right)
+	var rect_start : Vector2 = Vector2(min(start.x, end.x), min(start.y, end.y))
+	var rect_end : Vector2 = Vector2(max(start.x, end.x), max(start.y, end.y))
+	
+	# Check if the origin is within the bounds
+	return rect_start.x <= origin.x and origin.x <= rect_end.x and rect_start.y <= origin.y and origin.y <= rect_end.y

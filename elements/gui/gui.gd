@@ -229,14 +229,14 @@ func click_poi_or_item(name: String):
 			inventory_panel.set_status(feedback.found, Utils.ItemStatus.FOUND)
 		if feedback.has("used"):
 			inventory_panel.set_status(feedback.used, Utils.ItemStatus.USED)
-		if feedback.has("discovered"):
-			discovered_locations += [feedback.discovered]
-			discovered_location.emit()
 		if feedback.has("switch"):
 			switched_locations += [feedback.switch]
 			switched_location.emit()
+		if feedback.has("discovered"):
+			discovered_locations += [feedback.discovered]
+			discovered_location.emit()
 		if feedback.has("found"):
-			text_box.show_text_box(name_formatted, feedback.text, feedback.found)
+			text_box.show_text_box_with_found_item(name_formatted, feedback.text, feedback.found)
 		else:
 			text_box.show_text_box(name_formatted, feedback.text)
 	else:

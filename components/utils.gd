@@ -141,7 +141,7 @@ func get_name_position(tile_map_layer: TileMapLayer, discovered_locations: Array
 	for tile in tiles:
 		# check if current position is between start and end of a tile
 		if Utils.is_origin_inside(tile_pos, tile.start, tile.end):
-			if !tile_map_layer.get_children() and tile.undiscovered == false:
+			if !tile_map_layer.get_children() and tile_props.undiscovered == false:
 				# change cursor and show poi label if hovering
 				var position = tile_map_layer.map_to_local(tile.origin) - Vector2((len(tile.name) * 17) / 2, 20)
 				return {

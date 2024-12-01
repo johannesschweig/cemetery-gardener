@@ -90,12 +90,12 @@ theme_override_font_sizes/normal_font_size = 24
 text = "It is an old stone fountain with a statue in the middle. It is completely frozen over. Under you can see a fist-sized rectangular object under the ice. You knock against the ice. It is several centimeters thick.ggg"
 fit_content = true
 
-[node name="Found" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="AdditionalInfo" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="FoundIcon" type="TextureRect" parent="PanelContainer/VBoxContainer/Found"]
+[node name="AdditionalIcon" type="TextureRect" parent="PanelContainer/VBoxContainer/AdditionalInfo"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
@@ -103,7 +103,7 @@ texture = ExtResource("4_x5xe6")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="FoundItem" type="RichTextLabel" parent="PanelContainer/VBoxContainer/Found"]
+[node name="AdditionalName" type="RichTextLabel" parent="PanelContainer/VBoxContainer/AdditionalInfo"]
 unique_name_in_owner = true
 self_modulate = Color(0, 0, 0, 1)
 clip_contents = false

@@ -38,6 +38,10 @@ version_control/autoload_on_startup=true
 
 theme/custom="res://assets/theme/theme_bw.tres"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/translations.de.translation", "res://assets/translations.en.translation")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

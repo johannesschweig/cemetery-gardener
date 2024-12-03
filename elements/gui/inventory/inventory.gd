@@ -24,39 +24,39 @@ var inventory = [
 	},
 	{
 		"identifier": "car_key",
-		"description": "From an Opel",
+		"description": tr("FROM_OPEL"),
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "spare_key",
-		"description": "An old, heavy metal key with a key tag 'spare key crematorium'",
+		"description": tr("SPARE_KEY_DESC"),
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "hammer",
-		"description": "A large hammer that fits well in your hand.",
+		"description": tr("HAMMER_DESC"),
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "travel_flyer",
-		"description": "Palm trees. Beach. Sea.",
+		"description": tr("TRAVEL_FLYER_DESC"),
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "mobile_phone",
-		"description": "An old nokia mobile phone with an antenna.",
+		"description": tr("MOBILE_PHONE_DESC"),
 		"status": Utils.ItemStatus.INITIAL,
 		"unlock": true,
 		"solution": "1999"
 	},
 	{
 		"identifier": "spade",
-		"description": "With a T-handle.",
+		"description": tr("SPADE_DESC"),
 		"status": Utils.ItemStatus.INITIAL
 	},
 	{
 		"identifier": "newspaper_article",
-		"description": "From the 13th September 2000",
+		"description": tr("NEWSPAPER_ARTICLE_DESC"),
 		"status": Utils.ItemStatus.INITIAL
 	},
 ]
@@ -97,9 +97,9 @@ func get_description(identifier: String):
 func update_label_text():
 	var foundItems = get_number_of_items()
 	if foundItems == 0:
-		open_inventory.text = "Open Inventory (Empty)"
+		open_inventory.text = tr("OPEN_INVENTORY_EMPTY")
 	else:
-		open_inventory.text = "Open Inventory (%s)" % foundItems
+		open_inventory.text = tr("OPEN_INVENTORY_ITEMS") % foundItems
 
 
 func _on_open_inventory_pressed() -> void:

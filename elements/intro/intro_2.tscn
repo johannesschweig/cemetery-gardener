@@ -42,7 +42,7 @@ layout_mode = 2
 [node name="description" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
-text = "You are a police detective called to a cemetery because of a missing gardener. Examine the clues and try to find out what happened to him."
+text = "INTRO_DETECTIVE_MISSING_GARDENER"
 autowrap_mode = 2
 
 [node name="spacer2" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
@@ -68,7 +68,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_36rw4")
 theme_override_font_sizes/font_size = 48
-text = "Missing"
+text = "MISSING"
 uppercase = true
 
 [node name="spacer3" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -78,11 +78,7 @@ layout_mode = 2
 [node name="details" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_22mib")
-text = "Name: Boris Amburger
-Occupation: Cemetery Gardener
-Date of birth: 03.04.1951
-Place of birth: Muldau, Germany
-Missing since: 16.01.2003"
+text = "BORIS_AMBURGER_CEMETERY_GARDENER_MISSING_INFO"
 
 [node name="spacer" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 96)
@@ -93,7 +89,7 @@ custom_minimum_size = Vector2(410, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonLarge"
-text = "Continue"
+text = "CONTINUE"
 script = ExtResource("4_q7dsr")
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]

@@ -27,9 +27,7 @@ layout_mode = 2
 [node name="description" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1300, 0)
 layout_mode = 2
-text = "22.01.2003
-
-After a 3-hour drive, you have finally arrived. Solkwitz, a village of 1000 people in the countryside and part of your police district. Boris Amburger, 51 years old, employed as a cemetery gardener in Solkwitz for 3 years, disappeared a few days ago. This was reported by an employee of the cemetery administration after he failed to show up for work.  You look at the shop windows in the village center. A bakery advertises coffee for 1.50€ and sandwiches for 35 cents. At a fork in the road, you turn right and shortly afterwards the cemetery is in front of you. Tall oak trees are generously scattered between gravestones and paths. You park your car in the parking lot in front of the entrance."
+text = "ARRIVAL_SOLKWITZ_CEMETERY"
 autowrap_mode = 2
 
 [node name="spacer" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
@@ -41,7 +39,7 @@ custom_minimum_size = Vector2(410, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonLarge"
-text = "Continue"
+text = "CONTINUE"
 script = ExtResource("2_8i6xl")
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]

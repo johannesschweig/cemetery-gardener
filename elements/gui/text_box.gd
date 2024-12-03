@@ -18,7 +18,7 @@ func show_text_box_with_found_item(title: String, text: String, found_identifier
 	titleLabel.text = title
 	description.text = text
 	
-	additional_name.text = Utils.get_title_from_identifier(found_identifier) + " found"
+	additional_name.text = Utils.get_title_from_identifier(found_identifier) + " " + tr("FOUND")
 	additional_icon.texture = load("res://assets/items/" + found_identifier + ".png")
 	additional_info.visible = true
 	self.visible = true

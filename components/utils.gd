@@ -8,7 +8,7 @@ enum ItemStatus {
 
 # turn identifiers into human readable titles
 func get_title_from_identifier(identifier: String):
-	return identifier.replace("_", " ").capitalize()
+	return tr(identifier.to_upper())
 
 # removes all children from a node
 func clear_children(node: Node):
@@ -125,9 +125,6 @@ func get_tile_props(tile_map_layer: TileMapLayer, discovered_locations: Array):
 	var tile_data = tile_map_layer.get_cell_tile_data(tile_pos)
 	var name = tile_data.get_custom_data("name") if tile_data else ""
 	var undiscovered = tile_data.get_custom_data("undiscovered") if tile_data and tile_data.get_custom_data("undiscovered") else false
-	# check if name in list of discovered locations
-	if name and name in discovered_locations:
-		undiscovered = false
 	return {
 		"tile_pos": tile_pos,
 		"name": name,
@@ -141,7 +138,12 @@ func get_name_position(tile_map_layer: TileMapLayer, discovered_locations: Array
 	for tile in tiles:
 		# check if current position is between start and end of a tile
 		if Utils.is_origin_inside(tile_pos, tile.start, tile.end):
-			if !tile_map_layer.get_children() and tile_props.undiscovered == false:
+			var undiscovered = tile.undiscovered
+			# check if name in list of discovered locations
+			if tile.name in discovered_locations:
+				undiscovered = false
+			print(tile.name, tile_props.undiscovered)
+			if !tile_map_layer.get_children() and undiscovered == false:
 				# change cursor and show poi label if hovering
 				var position = tile_map_layer.map_to_local(tile.origin) - Vector2((len(tile.name) * 17) / 2, 20)
 				return {

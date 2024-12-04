@@ -95,8 +95,8 @@ TRAVEL_FLYER_DESC,Palm trees. Beach. Sea.,Palmen. Stand. Meer.
 MOBILE_PHONE_DESC,An old nokia mobile phone with an antenna.,Ein altes nokia Handy mit einer Antenne.
 SPADE_DESC,With a T-handle.,Mit einem T-Griff.
 NEWSPAPER_ARTICLE_DESC,From the 13th September 2000,Vom 13. September 2000
-OPEN_INVENTORY_EMPTY,Open Inventory (Empty),Oeffne Inventar (Leer)
-OPEN_INVENTORY_ITEMS,Open Inventory (%s),Oeffne Inventar (%s)
+OPEN_INVENTORY_EMPTY,Open Inventory (Empty),Inventar oeffnen (Leer)
+OPEN_INVENTORY_ITEMS,Open Inventory (%s),Inventar oeffnen (%s)
 FOUND,found,gefunden
 INVENTORY,Inventory,Inventar
 INVENTORY_EMPTY,Your inventory is empty.,Dein Inventar ist leer.

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy328j1g2yjkc"]
+[gd_scene load_steps=5 format=3 uid="uid://dy328j1g2yjkc"]
 
 [ext_resource type="Script" path="res://elements/intro/intro.gd" id="1_ocvwf"]
 [ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="3_2hp3g"]
+[ext_resource type="ButtonGroup" uid="uid://byebhsx142pkp" path="res://components/toggle_button-group.tres" id="3_c3f3x"]
 [ext_resource type="Script" path="res://components/my_button.gd" id="3_lroto"]
 
 [node name="intro1" type="Node2D"]
@@ -44,18 +45,25 @@ layout_mode = 2
 alignment = 1
 
 [node name="English" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonLarge"
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("3_c3f3x")
 text = "EN"
 script = ExtResource("3_lroto")
 
 [node name="German" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ButtonLarge"
+toggle_mode = true
+button_group = ExtResource("3_c3f3x")
 text = "DE"
 script = ExtResource("3_lroto")
 

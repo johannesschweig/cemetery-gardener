@@ -164,9 +164,9 @@ func process_interaction(name: String):
 		"mobile_phone":
 			return tr("MOBILE_PHONE_INFO")
 		"mobile_phone_unlocked":
-			# TODO nice to have sms history  Under “Messages” you find some text messages. Take the SMS history.
 			return {
 				"used": "mobile_phone",
+				"found": "sms_chat",
 				"discovered": "flower_vases", 
 				"text": tr("MOBILE_PHONE_UNLOCKING")
 			}
@@ -174,6 +174,11 @@ func process_interaction(name: String):
 			return inventory_panel.get_description("spade")
 		"newspaper_article":
 			return tr("NEWSPAPER_ARTICLE_INFO")
+		"sms_chat":
+			return {
+				"used": "sms_chat",
+				"text": "test",
+			}
 		"house":
 			return {
 				"map": "house"

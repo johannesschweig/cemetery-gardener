@@ -6,6 +6,5 @@ func _on_continue_pressed() -> void:
 func _on_english_pressed() -> void:
 	TranslationServer.set_locale('en')
 
-
 func _on_german_pressed() -> void:
 	TranslationServer.set_locale('de')

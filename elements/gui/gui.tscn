@@ -61,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_23ikt")
 
-[node name="Items" type="PanelContainer" parent="InventoryPanel"]
+[node name="ItemsContainer" type="PanelContainer" parent="InventoryPanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -73,43 +73,43 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5bj1r")
 script = ExtResource("5_ec2e7")
 inventory_item = ExtResource("7_5qak4")
 
-[node name="MarginContainer" type="MarginContainer" parent="InventoryPanel/Items"]
+[node name="MarginContainer" type="MarginContainer" parent="InventoryPanel/ItemsContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="InventoryPanel/Items/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryPanel/ItemsContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="InventoryPanel/Items/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryPanel/ItemsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="InventoryPanel/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="title" type="Label" parent="InventoryPanel/ItemsContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_e8wf5")
 theme_override_font_sizes/font_size = 64
 text = "INVENTORY"
 
-[node name="spacer" type="Control" parent="InventoryPanel/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="spacer" type="Control" parent="InventoryPanel/ItemsContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="close" type="Button" parent="InventoryPanel/Items/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="close" type="Button" parent="InventoryPanel/ItemsContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 theme = ExtResource("6_whk4i")
 text = "CLOSE"
 script = ExtResource("3_qhfmc")
 
-[node name="ItemsGrid" type="GridContainer" parent="InventoryPanel/Items/MarginContainer/VBoxContainer"]
+[node name="ItemsGrid" type="GridContainer" parent="InventoryPanel/ItemsContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 5
 
-[node name="Empty" type="Label" parent="InventoryPanel/Items/MarginContainer/VBoxContainer"]
+[node name="Empty" type="Label" parent="InventoryPanel/ItemsContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("6_whk4i")
@@ -133,4 +133,4 @@ offset_bottom = 0.0
 
 [connection signal="pressed" from="BackMap" to="." method="_on_back_map_pressed"]
 [connection signal="pressed" from="OpenInventory" to="InventoryPanel" method="_on_open_inventory_pressed"]
-[connection signal="pressed" from="InventoryPanel/Items/MarginContainer/VBoxContainer/HBoxContainer/close" to="InventoryPanel" method="_on_close_pressed"]
+[connection signal="pressed" from="InventoryPanel/ItemsContainer/MarginContainer/VBoxContainer/HBoxContainer/close" to="InventoryPanel" method="_on_close_pressed"]

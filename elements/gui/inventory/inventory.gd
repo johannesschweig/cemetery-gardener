@@ -2,7 +2,7 @@ extends Control
 
 @onready var items_grid: GridContainer = %ItemsGrid
 @onready var empty: Label = %Empty
-@onready var items: PanelContainer = %Items
+@onready var items_container: PanelContainer = %ItemsContainer
 @onready var inventory_panel: Control = %InventoryPanel
 @onready var open_inventory: MyButton = %OpenInventory
 var stage
@@ -59,6 +59,11 @@ var inventory = [
 		"description": "NEWSPAPER_ARTICLE_DESC",
 		"status": Utils.ItemStatus.INITIAL
 	},
+	{
+		"identifier": "sms_chat",
+		"description": "SMS_CHAT_DESC",
+		"status": Utils.ItemStatus.INITIAL,
+	},
 ]
 
 func _ready() -> void:
@@ -90,6 +95,7 @@ func set_status(identifier, status: Utils.ItemStatus):
 				break
 		inventory[found_identifier].status = status
 	update_label_text()
+	items_container.update_items()
 
 func get_description(identifier: String):
 	return inventory.filter(func(el): return el.identifier == identifier)[0].description
@@ -107,7 +113,7 @@ func _on_open_inventory_pressed() -> void:
 	inventory_panel.show()
 	stage.hide()
 	if get_number_of_items():
-		items.update_items()
+		items_container.update_items()
 		items_grid.show()
 		empty.hide()
 	else:

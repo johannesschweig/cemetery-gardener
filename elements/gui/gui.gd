@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var open_inventory: MyButton = %OpenInventory
 @onready var items: PanelContainer = %Items
 @onready var back_map: MyButton = %BackMap
+@onready var sms_chat: PanelContainer = %SmsChat
 
 var discovered_locations = []
 var switched_locations = []
@@ -20,6 +21,7 @@ func _ready() -> void:
 	inventory_panel.hide()
 	unlock_box.hide()
 	back_map.hide()
+	sms_chat.hide()
 
 func show_poi_label_panel(name: String, position: Vector2):
 	poi_label_panel.visible = true
@@ -177,7 +179,7 @@ func process_interaction(name: String):
 		"sms_chat":
 			return {
 				"used": "sms_chat",
-				"text": "test",
+				"component": "sms_chat",
 			}
 		"house":
 			return {
@@ -209,6 +211,7 @@ func click_poi_or_item(name: String):
 		if feedback.has("map"):
 			get_node("/root/World/Stage").change_map(feedback.map)
 			return
+
 		if feedback.has("found"):
 			inventory_panel.set_status(feedback.found, Utils.ItemStatus.FOUND)
 		if feedback.has("used"):
@@ -219,6 +222,10 @@ func click_poi_or_item(name: String):
 		if feedback.has("discovered"):
 			discovered_locations += [feedback.discovered]
 			discovered_location.emit()
+		if feedback.has("component"):
+			sms_chat.show()
+			return
+
 		if feedback.has("found"):
 			text_box.show_text_box_with_found_item(name_formatted, feedback.text, feedback.found)
 		else:

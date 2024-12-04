@@ -1,0 +1,213 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhitds1wldb6q"]
+
+[ext_resource type="FontFile" uid="uid://bjb84osbphrfm" path="res://assets/theme/fonts/Molot.otf" id="1_1m4vw"]
+[ext_resource type="FontFile" uid="uid://cv77gbuak1thn" path="res://assets/theme/fonts/nokiafc22.ttf" id="1_imsf2"]
+[ext_resource type="Script" path="res://elements/gui/sms_chat.gd" id="1_isccr"]
+[ext_resource type="Theme" uid="uid://riv3is6s0hbn" path="res://assets/theme/theme_bw.tres" id="2_w1nvk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tylug"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_0r2vt"]
+base_font = ExtResource("1_1m4vw")
+variation_opentype = {
+2003265652: 600
+}
+
+[node name="SmsChat" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tylug")
+script = ExtResource("1_isccr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_0r2vt")
+theme_override_font_sizes/font_size = 32
+text = "SMS chat"
+
+[node name="Spacer" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Close" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 48)
+layout_mode = 2
+theme = ExtResource("2_w1nvk")
+text = "X"
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 32
+text = "+49 151 47829823"
+
+[node name="Spacer6" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/v_separation = 64
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 20
+text = "NEW_PASSPORT_MSG"
+autowrap_mode = 2
+
+[node name="Date" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 14
+text = "12.06.2000"
+autowrap_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 20
+text = "OK_MSG"
+autowrap_mode = 2
+
+[node name="Date" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 14
+text = "13.06.2000"
+autowrap_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 20
+text = "ASK_CEMETERY_MSG"
+autowrap_mode = 2
+
+[node name="Date" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 14
+text = "14.06.2000"
+autowrap_mode = 2
+
+[node name="Spacer3" type="Control" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Spacer4" type="Control" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 20
+text = "WATCHED_MSG"
+autowrap_mode = 2
+
+[node name="Date" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer4"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 14
+text = "24.09.2002"
+autowrap_mode = 2
+
+[node name="Spacer5" type="Control" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 20
+text = "HELP_MSG"
+autowrap_mode = 2
+
+[node name="Date" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 14
+text = "06.11.2002"
+autowrap_mode = 2
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 20
+text = "DELIVER_FAILURE_MSG"
+autowrap_mode = 2
+
+[node name="Date" type="Label" parent="VBoxContainer/GridContainer/VBoxContainer6"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_imsf2")
+theme_override_font_sizes/font_size = 14
+text = "06.11.2002"
+autowrap_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]

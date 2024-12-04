@@ -113,3 +113,9 @@ You take the passports, close the suitcase and lock the Opel. You get into your 
 
 Du nimmst die Pässe an dich, klappst den Koffer zu und verschließt den Opel. Du setzt dich in deinen Wagen und setzt einen Funkspruch ab. Es könnte noch eine Weile dauern bis die Kollegen kommen. Auf dem Hinweg hast du eine Bäckerei gesehen. Dir ist jetzt nach etwas Warmem zu trinken und vielleicht auch nach einer Schrippe für 35 Cent. "
 END,The end,ENDE
+NEW_PASSPORT_MSG,>> We have received your package. You will receive your new passport immediately. Boris Amburger from Muldau. You have done your new country a great service.,>> Wir haben Ihr Paket erhalten. Sie erhalten umgehend ihren neuen Pass. Boris Amburger aus Muldau. Sie haben Ihrem neuem Land einen großen Dienst erwiesen.
+OK_MSG,<< Affirmative.,<< Verstanden.
+ASK_CEMETERY_MSG,>> Contact the cemetery in Solkwitz. They have a quiet job for you there.,>> Melden Sie sich beim Friedhof in Solkwitz. Dort hat man einen ruhigen Job für Sie.
+WATCHED_MSG,<< I'm being watched. You have to get me out of here.,<< Ich werde beobachtet. Sie müssen mich hier rausholen.
+HELP_MSG,<< cyka blyat! What's going on? I gave you everything you wanted.,"<< cyka blyat! Was ist los? Ich habe ihnen alles geliefert, was sie wollten."
+DELIVER_FAILURE_MSG,!!! SMS Delivery Failure: The number +49 151 47829823 is not assigned.,!!! SMS Delivery Failure: Die Nummer +49 151 47829823 ist nicht vergeben.

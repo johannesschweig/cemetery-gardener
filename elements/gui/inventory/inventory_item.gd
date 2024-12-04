@@ -5,7 +5,8 @@ var item
 func set_item(i) -> void:
 	item = i
 	%name.text = Utils.get_title_from_identifier(item.identifier)
-	%description.text = item.description
+	# translate string if it is a constant
+	%description.text = item.description if item.description[0] == item.description[0].to_lower() else tr(item.description)
 	%icon.texture = load("res://assets/items/" + item.identifier + ".png")
 	# unlock button
 	if item.has('unlock'):

@@ -28,6 +28,8 @@ func update_switched_locations():
 				var original_id = original_props.id
 				var new_coords = Utils.find_coords_in_atlas(new_location, self)
 				self.set_cell(original_coords, original_id, new_coords)
+		# update tiles that show up
+		tiles = Utils.get_all_tiles(self)
 
 func _process(_delta):
 	if stage.is_visible_in_tree():

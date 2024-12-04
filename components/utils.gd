@@ -118,17 +118,15 @@ func is_origin_inside(origin: Vector2, start: Vector2, end: Vector2) -> bool:
 	# Check if the origin is within the bounds
 	return rect_start.x <= origin.x and origin.x <= rect_end.x and rect_start.y <= origin.y and origin.y <= rect_end.y
 
-# returns tile position, name, discovered state fo the currently hovered tile
+# returns tile position, name of the currently hovered tile
 func get_tile_props(tile_map_layer: TileMapLayer, discovered_locations: Array):
 	var mouse_pos_global = get_viewport().get_mouse_position()
 	var tile_pos = tile_map_layer.local_to_map(mouse_pos_global)
 	var tile_data = tile_map_layer.get_cell_tile_data(tile_pos)
 	var name = tile_data.get_custom_data("name") if tile_data else ""
-	var undiscovered = tile_data.get_custom_data("undiscovered") if tile_data and tile_data.get_custom_data("undiscovered") else false
 	return {
 		"tile_pos": tile_pos,
-		"name": name,
-		"undiscovered": undiscovered
+		"name": name
 	}
 
 # returns name and position of the currently hovered location
@@ -142,7 +140,6 @@ func get_name_position(tile_map_layer: TileMapLayer, discovered_locations: Array
 			# check if name in list of discovered locations
 			if tile.name in discovered_locations:
 				undiscovered = false
-			print(tile.name, tile_props.undiscovered)
 			if !tile_map_layer.get_children() and undiscovered == false:
 				# change cursor and show poi label if hovering
 				var position = tile_map_layer.map_to_local(tile.origin) - Vector2((len(tile.name) * 17) / 2, 20)

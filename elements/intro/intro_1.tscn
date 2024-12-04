@@ -39,6 +39,30 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="English" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ButtonLarge"
+text = "EN"
+script = ExtResource("3_lroto")
+
+[node name="German" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ButtonLarge"
+text = "DE"
+script = ExtResource("3_lroto")
+
+[node name="spacer2" type="Control" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
 [node name="continue" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(340, 140)
 layout_mode = 2
@@ -47,4 +71,6 @@ theme_type_variation = &"ButtonLarge"
 text = "Start"
 script = ExtResource("3_lroto")
 
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/English" to="." method="_on_english_pressed"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/HBoxContainer/German" to="." method="_on_german_pressed"]
 [connection signal="pressed" from="CanvasLayer/CenterContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]

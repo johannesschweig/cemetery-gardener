@@ -24,39 +24,39 @@ var inventory = [
 	},
 	{
 		"identifier": "car_key",
-		"description": tr("FROM_OPEL"),
+		"description": "FROM_OPEL",
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "spare_key",
-		"description": tr("SPARE_KEY_DESC"),
+		"description": "SPARE_KEY_DESC",
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "hammer",
-		"description": tr("HAMMER_DESC"),
+		"description": "HAMMER_DESC",
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "travel_flyer",
-		"description": tr("TRAVEL_FLYER_DESC"),
+		"description": "TRAVEL_FLYER_DESC",
 		"status": Utils.ItemStatus.INITIAL,
 	},
 	{
 		"identifier": "mobile_phone",
-		"description": tr("MOBILE_PHONE_DESC"),
+		"description": "MOBILE_PHONE_DESC",
 		"status": Utils.ItemStatus.INITIAL,
 		"unlock": true,
 		"solution": "1999"
 	},
 	{
 		"identifier": "spade",
-		"description": tr("SPADE_DESC"),
+		"description": "SPADE_DESC",
 		"status": Utils.ItemStatus.INITIAL
 	},
 	{
 		"identifier": "newspaper_article",
-		"description": tr("NEWSPAPER_ARTICLE_DESC"),
+		"description": "NEWSPAPER_ARTICLE_DESC",
 		"status": Utils.ItemStatus.INITIAL
 	},
 ]

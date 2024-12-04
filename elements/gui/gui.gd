@@ -20,7 +20,6 @@ func _ready() -> void:
 	inventory_panel.hide()
 	unlock_box.hide()
 	back_map.hide()
-	TranslationServer.set_locale("de") # debug
 
 func show_poi_label_panel(name: String, position: Vector2):
 	poi_label_panel.visible = true

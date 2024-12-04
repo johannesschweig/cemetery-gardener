@@ -119,3 +119,4 @@ ASK_CEMETERY_MSG,>> Contact the cemetery in Solkwitz. They have a quiet job for 
 WATCHED_MSG,<< I'm being watched. You have to get me out of here.,<< Ich werde beobachtet. Sie müssen mich hier rausholen.
 HELP_MSG,<< cyka blyat! What's going on? I gave you everything you wanted.,"<< cyka blyat! Was ist los? Ich habe ihnen alles geliefert, was sie wollten."
 DELIVER_FAILURE_MSG,!!! SMS Delivery Failure: The number +49 151 47829823 is not assigned.,!!! SMS Delivery Failure: Die Nummer +49 151 47829823 ist nicht vergeben.
+UNLOCK,Unlock,Loesen

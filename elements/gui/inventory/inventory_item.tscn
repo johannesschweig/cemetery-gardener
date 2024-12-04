@@ -79,11 +79,10 @@ text = "Info"
 
 [node name="unlock" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("6_7ajg3")
-text = "Unlock"
+text = "UNLOCK"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/info" to="." method="_on_info_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/unlock" to="." method="_on_unlock_pressed"]

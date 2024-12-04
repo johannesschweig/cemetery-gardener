@@ -111,7 +111,7 @@ placeholder_text = "••••"
 [node name="unlock" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_2gyox")
-text = "Unlock"
+text = "UNLOCK"
 
 [node name="feedback" type="RichTextLabel" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true

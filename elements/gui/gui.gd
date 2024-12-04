@@ -5,7 +5,6 @@ extends CanvasLayer
 @onready var poi_label_panel: PanelContainer = %PoiLabelPanel
 @onready var unlock_box: CenterContainer = %UnlockBox
 @onready var open_inventory: MyButton = %OpenInventory
-@onready var items: PanelContainer = %Items
 @onready var back_map: MyButton = %BackMap
 @onready var sms_chat: PanelContainer = %SmsChat
 

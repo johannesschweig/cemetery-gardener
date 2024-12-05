@@ -10,7 +10,7 @@
 [ext_resource type="Theme" uid="uid://riv3is6s0hbn" path="res://assets/theme/theme_bw.tres" id="6_whk4i"]
 [ext_resource type="PackedScene" uid="uid://ca8m6bwg1wqqh" path="res://elements/gui/inventory/inventory_item.tscn" id="7_5qak4"]
 [ext_resource type="PackedScene" uid="uid://dg53lhvlxxxp6" path="res://elements/gui/inventory/unlock_box.tscn" id="9_co8oa"]
-[ext_resource type="PackedScene" uid="uid://bhitds1wldb6q" path="res://elements/gui/sms_chat.tscn" id="11_pkwsd"]
+[ext_resource type="PackedScene" path="res://elements/gui/sms_chat.tscn" id="11_pkwsd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bj1r"]
 bg_color = Color(1, 1, 1, 1)

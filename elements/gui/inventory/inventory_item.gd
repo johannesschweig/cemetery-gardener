@@ -11,6 +11,8 @@ func set_item(i) -> void:
 	# unlock button
 	if item.has('unlock'):
 		%unlock.visible = true
+	else:
+		%unlock.hide()
 	self.visible = true
 
 func _on_info_pressed() -> void:

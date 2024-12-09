@@ -47,7 +47,7 @@ func _process(_delta):
 			showing_poi_panel = false
 
 # on click: show text box or perform other action
-func _input(event):
+func _unhandled_input(event: InputEvent):
 	if stage.is_visible_in_tree() and event is InputEventMouseButton and event.pressed:
 		var data = Utils.get_name_position(self, gui.discovered_locations, tiles)
 		if data:

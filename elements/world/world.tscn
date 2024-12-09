@@ -17,4 +17,3 @@ script = ExtResource("1_rw8uq")
 stages = Array[PackedScene]([ExtResource("2_6caqo"), ExtResource("3_jx385"), ExtResource("4_xmwhi"), ExtResource("3_kpuet"), ExtResource("4_ui816")])
 
 [node name="Gui" parent="." instance=ExtResource("2_toqo4")]
-visible = false

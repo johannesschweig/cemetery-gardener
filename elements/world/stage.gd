@@ -8,6 +8,7 @@ func _ready() -> void:
 	if len(stages) > 0:
 		var instance = stages[0].instantiate()
 		add_child(instance)
+	get_node("/root/World/Gui").hide()
 
 func next_stage():
 	current_stage += 1
@@ -15,9 +16,9 @@ func next_stage():
 	Utils.clear_children(self)
 	add_child(instance)
 	if current_stage == 3:
-		get_node("/root/World/Gui").visible = true
+		get_node("/root/World/Gui").show()
 	else:
-		get_node("/root/World/Gui").visible = false
+		get_node("/root/World/Gui").hide()
 # TODO incorporate debug flag
 
 func change_map(map: String):
